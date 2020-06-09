@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Topbar from '../components/Topbar.js';
+import Topbar from '../components/Topbar/Topbar.js';
 import classes from './Layout.module.css';
 
 

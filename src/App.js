@@ -1,12 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Layout from './hoc/Layout';
+import Front from './containers/Front/Front';
+import Results from './containers/Results/Results';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Route path="/" exact component={Front} />
+          <Route path="/search" component={Results} />
+        </Switch>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

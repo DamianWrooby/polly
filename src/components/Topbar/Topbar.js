@@ -1,10 +1,12 @@
 import React from 'react';
 import classes from './Topbar.module.css';
 
-const topbar = () => {
+const Topbar = () => {
     return (
         <div>
-            topbar
+            Topbar
         </div>
     );
-}
+};
+
+export default Topbar;
