@@ -3,7 +3,7 @@ import classes from './Topbar.module.css';
 
 const Topbar = () => {
     return (
-        <div>
+        <div className={classes.Topbar}>
             Topbar
         </div>
     );

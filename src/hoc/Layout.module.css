@@ -1,0 +1,11 @@
+.Wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+.Main {
+    position: absolute;
+    width: 70vw;
+    height: 70vh;
+    top: 15%;
+    left: 15%;
+}
