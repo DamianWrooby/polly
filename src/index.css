@@ -1,6 +1,8 @@
 html * {
-    background: rgba(255, 0, 0, .1);
-    box-shadow: 0 0 0 1px red;
+    background: rgba(117, 131, 138, 0.1);
+    box-shadow: 0 0 0 1px rgb(176, 176, 177);
+    font-family: 'Josefin Sans', sans-serif;;
+    font-size: 14px;
 }
 body {
     margin: 0;
@@ -8,3 +10,7 @@ body {
     width: 100%;
     height: 100%;
 }
+a {
+    color: inherit;
+    text-decoration: none;
+  }

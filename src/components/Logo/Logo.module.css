@@ -1,0 +1,10 @@
+.Logo {
+    display: inline-block;
+    margin: auto 1em;
+}
+
+.Logo a {
+    color: #fff;
+    font-family: 'Lexend Tera', sans-serif;
+    font-size: 1.3rem;
+}
