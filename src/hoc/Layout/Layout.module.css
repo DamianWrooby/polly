@@ -10,6 +10,7 @@
     height: 70vh;
     top: 15%;
     left: 15%;
+    border-radius: 2em;
 }
 .Content {
     flex-basis: 100%;

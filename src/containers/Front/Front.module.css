@@ -1,0 +1,12 @@
+.Front {
+    height: 100%;
+}
+form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -112px;
+}
+button {
+    margin: 0 0.5em;
+}

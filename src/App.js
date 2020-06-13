@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './hoc/Layout';
+import Layout from './hoc/Layout/Layout';
 import Front from './containers/Front/Front';
 import Results from './containers/Results/Results';
 
