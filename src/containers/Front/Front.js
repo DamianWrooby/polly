@@ -54,7 +54,7 @@ class Front extends Component {
         if (this.state.loading) {
             form = <Spinner />;
         } else if (this.state.error) {
-            form = <div className={classes.Error}>{this.state.error}</div>
+            form = <p>Ups. Something went wrong.</p>
         }
         return (
             <div className={classes.Front}>
