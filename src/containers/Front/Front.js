@@ -7,15 +7,18 @@ import axios from '../../axios-geocode';
 
 
 class Front extends Component {
-    state = {
-        query: '',
-        location: {
-            lat: null,
-            lng: null
-        },
-        loading: false,
-        error: null
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            query: '',
+            location: {
+                lat: null,
+                lng: null
+            },
+            loading: false,
+            error: null
+        };
+    }
 
     inputChangedHandler = (event) => {
         this.setState({ query: event.target.value });
@@ -31,7 +34,15 @@ class Front extends Component {
             .then((response) => {
                 const location = response.data.results[0].locations[0].latLng;
                 this.setState({ loading: false, location: location });
-                console.log(this.state.location);
+                const queryParams = [];
+                for (let i in this.state.location) {
+                    queryParams.push(encodeURIComponent(i) + '=' + this.state.location[i]);
+                }
+                let queryString = queryParams.join('&');
+                this.props.history.push({
+                    pathname: '/location',
+                    search: '?' + queryString
+                });
             })
             .catch((err) => {
                 this.setState({ loading: false, error: true });
