@@ -11,6 +11,10 @@ class Results extends Component {
         super(props);
         this.state = {
             location: {
+                coordinates: {},
+                info: {
+
+                }
             },
             loading: true,
             error: false
@@ -19,11 +23,12 @@ class Results extends Component {
 
     componentDidMount() {
         const query = new URLSearchParams(this.props.location.search);
-        let updatedLocation = {};
-        console.log(query);
+        const updatedLocation = { ...this.state.location };
+        const updatedCoordinates = { ...updatedLocation.coordinates };
         for (let param of query.entries()) {
-            updatedLocation[param[0]] = param[1];
+            updatedCoordinates[param[0]] = param[1];
         }
+        updatedLocation.coordinates = updatedCoordinates;
         this.setState({ location: updatedLocation });
 
         const airlyKey = 'E5uVHwAJDcdy1YKj9x05zTgKtaxMKgAk';
@@ -43,16 +48,23 @@ class Results extends Component {
             });
         */
 
-        const locationInfoReq = axios.get(`http://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.lat},${updatedLocation.lng}`);
-        const pollutionInfoReq = axios.get(`https://airapi.airly.eu/v2/measurements/nearest?lat=${updatedLocation.lat}&lng=${updatedLocation.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`);
+        const locationInfoReq = axios.get(`http://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.coordinates.lat},${updatedLocation.coordinates.lng}`);
+        const pollutionInfoReq = axios.get(`https://airapi.airly.eu/v2/measurements/nearest?lat=${updatedLocation.coordinates.lat}&lng=${updatedLocation.coordinates.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`);
 
         axios
             .all([locationInfoReq, pollutionInfoReq])
             .then(axios.spread((...responses) => {
                 const locationInfoRes = responses[0];
                 const pollutionInfoRes = responses[1];
-                this.setState({ loading: false });
-                console.log(locationInfoRes.data.results[0].locations[0], pollutionInfoRes.data);
+                let updatedLocationInfo = { ...updatedLocation.info };
+
+                updatedLocationInfo = locationInfoRes.data.results[0].locations[0]
+                updatedLocation.info = updatedLocationInfo;
+                console.log(updatedLocation);
+                this.setState({ loading: false, location: updatedLocation }, () => {
+                    console.log(this.state.location);
+                });
+                // console.log(locationInfoRes.data.results[0].locations[0], pollutionInfoRes.data);
             })).catch(errors => {
                 this.setState({ loading: false, error: true });
                 console.log(errors);
@@ -60,9 +72,10 @@ class Results extends Component {
     }
 
     render() {
-        let results = (<div className={classes.Content}>
-            <LocationInfo />
-        </div>
+        let results = (
+            <div className={classes.Content}>
+                <LocationInfo location={this.state.location.info} />
+            </div>
         );
 
         if (this.state.loading) {
