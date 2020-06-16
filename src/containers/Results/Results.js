@@ -16,6 +16,7 @@ class Results extends Component {
 
                 }
             },
+            data: {},
             loading: true,
             error: false
         }
@@ -35,19 +36,6 @@ class Results extends Component {
         const airlyDistance = '100';
         const geocodingKey = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
-        /*
-        axios
-            .get(`nearest?lat=${updatedLocation.lat}&lng=${updatedLocation.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`)
-            .then((response) => {
-                this.setState({ loading: false });
-                console.log(response.data);
-            })
-            .catch((err) => {
-                this.setState({ loading: false, error: true });
-                console.log(err);
-            });
-        */
-
         const locationInfoReq = axios.get(`http://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.coordinates.lat},${updatedLocation.coordinates.lng}`);
         const pollutionInfoReq = axios.get(`https://airapi.airly.eu/v2/measurements/nearest?lat=${updatedLocation.coordinates.lat}&lng=${updatedLocation.coordinates.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`);
 
@@ -56,15 +44,17 @@ class Results extends Component {
             .then(axios.spread((...responses) => {
                 const locationInfoRes = responses[0];
                 const pollutionInfoRes = responses[1];
-                let updatedLocationInfo = { ...updatedLocation.info };
 
+                let updatedLocationInfo = { ...updatedLocation.info };
                 updatedLocationInfo = locationInfoRes.data.results[0].locations[0]
                 updatedLocation.info = updatedLocationInfo;
-                console.log(updatedLocation);
-                this.setState({ loading: false, location: updatedLocation }, () => {
-                    console.log(this.state.location);
+
+                let updatedData = { ...this.state.data };
+                updatedData = pollutionInfoRes.data;
+
+                this.setState({ loading: false, location: updatedLocation, data: updatedData }, () => {
+                    console.log(this.state);
                 });
-                // console.log(locationInfoRes.data.results[0].locations[0], pollutionInfoRes.data);
             })).catch(errors => {
                 this.setState({ loading: false, error: true });
                 console.log(errors);
