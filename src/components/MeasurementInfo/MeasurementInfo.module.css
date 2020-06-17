@@ -1,0 +1,4 @@
+.MeasurementInfo {
+    display: flex;
+    justify-content: space-between;
+}

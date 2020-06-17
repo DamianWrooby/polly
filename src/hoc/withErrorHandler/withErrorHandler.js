@@ -6,21 +6,51 @@ const withErrorHandler = (WrappedComponent, axios) => {
         state = {
             error: null
         }
+        componentDidMount() {
+            this.reqInterceptor = axios.interceptors.request.use((req) => {
+                this.setState({ error: null });
+                return req;
+            });
+            this.resInterceptor = axios.interceptors.response.use(
+                (res) => res,
+                (error) => {
+                    this.setState({ error: error }, () => {
+                        console.log(this.state.error);
+                    });
+                }
+            );
+        }
 
+        /*
         componentDidMount() {
             axios.interceptors.request.use(req => {
                 this.setState({ error: null });
                 return req;
             });
             axios.interceptors.response.use(res => res, error => {
-                console.log(error);
-                this.setState({ error: error });
+
+                this.setState({ error: error }, () => {
+                    console.log(this.state.error);
+                });
             });
+        } */
+        componentWillUnmount() {
+            axios.interceptors.request.eject(this.reqInterceptor);
+            axios.interceptors.response.eject(this.resInterceptor);
         }
 
         render() {
-            let renderSection = this.state.error ? <WrappedComponent {...this.props} /> : <WrappedComponent {...this.props} />;
-            return renderSection;
+            // let renderSection = this.state.error ? <p>{this.state.error.message}</p> : <WrappedComponent {...this.props} />;
+            return (
+                <React.Fragment>
+                    <p>
+                        {this.state.error ? this.state.error.message : null}
+                    </p>
+                    <WrappedComponent {...this.props} />
+                </React.Fragment>
+
+            )
+            // return renderSection;
         }
     };
 };

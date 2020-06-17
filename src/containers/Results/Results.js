@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './Results.module.css';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import LocationInfo from '../../components/LocationInfo/LocationInfo';
+import MeasurementInfo from '../../components/MeasurementInfo/MeasurementInfo';
 import axios from 'axios';
 
 
@@ -64,7 +64,7 @@ class Results extends Component {
     render() {
         let results = (
             <div className={classes.Content}>
-                <LocationInfo location={this.state.location.info} />
+                <MeasurementInfo location={this.state.location.info} />
             </div>
         );
 
