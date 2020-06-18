@@ -61,6 +61,11 @@ class Results extends Component {
             });
     }
 
+    goBackHandler = (event) => {
+        event.preventDefault();
+        this.props.history.goBack();
+    }
+
     render() {
         let results = (
             <div className={classes.Content}>
@@ -71,7 +76,12 @@ class Results extends Component {
         if (this.state.loading) {
             results = <Spinner />;
         } else if (this.state.error) {
-            results = <p>Ups. Something went wrong with results loading.</p>
+            results = (
+                <React.Fragment>
+                    <p>Cannot find this location. Try another one.</p>
+                    <button onClick={this.goBackHandler}>Go back</button>
+                </React.Fragment>
+            );
         }
 
         return (
