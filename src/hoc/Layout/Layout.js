@@ -6,12 +6,12 @@ import classes from './Layout.module.css';
 const layout = ({ children }) => {
     return (
         <div className={classes.Wrapper}>
-            <div className={classes.Main}>
+            <main className={classes.Main}>
                 <Topbar />
                 <div className={classes.Content}>
                     {children}
                 </div>
-            </div>
+            </main>
         </div>
     );
 }

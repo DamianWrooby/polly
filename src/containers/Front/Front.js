@@ -57,7 +57,7 @@ class Front extends Component {
                 changed={this.inputChangedHandler}
                 label='Search location'
             />
-            <button>
+            <button type="submit">
                 Search
             </button>
         </form>);

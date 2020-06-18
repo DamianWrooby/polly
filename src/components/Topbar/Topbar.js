@@ -7,12 +7,12 @@ import classes from './Topbar.module.css';
 
 const Topbar = () => {
     return (
-        <div className={classes.Topbar}>
+        <header className={classes.Topbar}>
             <Logo />
             <nav>
                 <NavigationItems />
             </nav>
-        </div>
+        </header>
     );
 };
 
