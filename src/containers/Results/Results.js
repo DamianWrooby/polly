@@ -53,7 +53,7 @@ class Results extends Component {
                 updatedData = pollutionInfoRes.data;
 
                 this.setState({ loading: false, location: updatedLocation, data: updatedData }, () => {
-                    console.log(this.state);
+                    console.log(this.state.data);
                 });
             })).catch(errors => {
                 this.setState({ loading: false, error: true });
@@ -69,7 +69,7 @@ class Results extends Component {
     render() {
         let results = (
             <div className={classes.Content}>
-                <MeasurementInfo location={this.state.location.info} />
+                <MeasurementInfo location={this.state.location.info} currentData={this.state.data.current} />
             </div>
         );
 
