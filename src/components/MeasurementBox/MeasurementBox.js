@@ -8,7 +8,6 @@ const MeasurementBox = () => {
         <div className={classes.MeasurementBox}>
             <div className={classes.Label}>Label</div>
             <MeasurementCircle />
-            <MeasurementCircle />
         </div>
     );
 
