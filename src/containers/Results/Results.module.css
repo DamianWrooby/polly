@@ -4,6 +4,7 @@
 .Content {
     
 }
-.Measurments {
-    
+.Measurements {
+    display: flex;
+    justify-content: space-between;
 }

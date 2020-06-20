@@ -3,11 +3,15 @@ import MeasurementCircle from '../MeasurementCircle/MeasurementCircle';
 import classes from './MeasurementBox.module.css';
 
 
-const MeasurementBox = () => {
+const MeasurementBox = ({ label }) => {
     return (
         <div className={classes.MeasurementBox}>
-            <div className={classes.Label}>Label</div>
-            <MeasurementCircle />
+            <div className={classes.Label}>{label}</div>
+            <div className={classes.Circles}>
+                <MeasurementCircle />
+                <MeasurementCircle />
+                <MeasurementCircle />
+            </div>
         </div>
     );
 

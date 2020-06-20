@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './MeasurementCircle.module.css';
 import DaughnutChart from '../Charts/DaughnutChart/DaughnutChart';
 
-const MeasurementCircle = () => {
+const MeasurementCircle = ({ label }) => {
     const data = {
         datasets: [{
             data: [10, 90],
@@ -22,8 +22,11 @@ const MeasurementCircle = () => {
             '#123411'
         ],
         options: {
+            tooltips: {
+                enabled: false
+            },
             responsive: true,
-            cutoutPercentage: 90,
+            cutoutPercentage: 70,
             legend: {
                 display: false
             }
@@ -38,6 +41,9 @@ const MeasurementCircle = () => {
                 height={90}
                 options={data.options}
             />
+            <div className={classes.ChartLabel}>
+                <p>PM10</p>
+            </div>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import MeasurementInfo from '../../components/MeasurementInfo/MeasurementInfo';
 import MeasurementBox from '../../components/MeasurementBox/MeasurementBox';
+import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';
 import axios from 'axios';
 
 class Results extends Component {
@@ -70,9 +71,11 @@ class Results extends Component {
         let results = (
             <div className={classes.Content}>
                 <MeasurementInfo location={this.state.location.info} currentData={this.state.data.current} />
-                <section className={classes.Measurments}>
-                    <MeasurementBox />
-                </section>
+                <AirQualityBox data={this.state.data.current} />
+                <div className={classes.Measurements}>
+                    <MeasurementBox label='Dust' />
+                    <MeasurementBox label='Weather' />
+                </div>
             </div>
         );
 

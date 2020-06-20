@@ -1,4 +1,13 @@
 .MeasurementCircle {
-    width: 60%;
-    height: auto;
+    width: 20%;
 }
+
+.ChartLabel {
+    margin-top: -100px;
+    margin-bottom: 100px;
+ }
+.ChartLabel p {
+    margin-bottom: 5px;
+    margin-top: 0;
+    font-size: 10px;
+ }
