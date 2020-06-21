@@ -73,8 +73,8 @@ class Results extends Component {
                 <MeasurementInfo location={this.state.location.info} currentData={this.state.data.current} />
                 <AirQualityBox data={this.state.data.current} />
                 <div className={classes.Measurements}>
-                    <MeasurementBox label='Dust' />
-                    <MeasurementBox label='Weather' />
+                    <MeasurementBox label='Dust' data={this.state.data.current} />
+                    <MeasurementBox label='Weather' data={this.state.data.current} />
                 </div>
             </div>
         );

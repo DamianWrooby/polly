@@ -2,8 +2,8 @@ import React from 'react';
 import classes from './MeasurementCircle.module.css';
 import DaughnutChart from '../Charts/DaughnutChart/DaughnutChart';
 
-const MeasurementCircle = ({ label }) => {
-    const data = {
+const MeasurementCircle = ({ airData }) => {
+    const chartData = {
         datasets: [{
             data: [10, 90],
             backgroundColor: [
@@ -36,14 +36,12 @@ const MeasurementCircle = ({ label }) => {
     return (
         <div className={classes.MeasurementCircle}>
             <DaughnutChart
-                data={data}
+                airData={airData}
+                chartData={chartData}
                 width={90}
                 height={90}
-                options={data.options}
+                options={chartData.options}
             />
-            <div className={classes.ChartLabel}>
-                <p>PM10</p>
-            </div>
         </div>
     );
 };
