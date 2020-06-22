@@ -4,7 +4,7 @@ import classes from './AirQualityBox.module.css';
 const AirQualityBox = ({ data }) => {
     const indexValue = data ? (
         <div className={classes.Index}>
-            {data.indexes[0].value}
+            Pollution level: {data.indexes[0].level.toLowerCase().replace('_', ' ')}
         </div>
     ) : null;
 

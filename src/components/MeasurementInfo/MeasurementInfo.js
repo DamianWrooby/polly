@@ -15,8 +15,8 @@ const MeasurementInfo = ({ location, currentData }) => {
     console.log(dateString);
     return (
         <div className={classes.MeasurementInfo}>
-            <p>Location: {locationText}</p>
-            <p>Measurement time: {dateString}</p>
+            <p>Location: <br />{locationText}</p>
+            <p>Measurement time: <br />{dateString}</p>
         </div>
     );
 };

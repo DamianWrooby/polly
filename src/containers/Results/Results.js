@@ -18,6 +18,11 @@ class Results extends Component {
                 }
             },
             data: {},
+            dust: {
+                PM1: null,
+                PM25: null,
+                PM10: null
+            },
             loading: true,
             error: false
         }
@@ -34,7 +39,7 @@ class Results extends Component {
         this.setState({ location: updatedLocation });
 
         const airlyKey = 'E5uVHwAJDcdy1YKj9x05zTgKtaxMKgAk';
-        const airlyDistance = '100';
+        const airlyDistance = '1000';
         const geocodingKey = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
         const locationInfoReq = axios.get(`http://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.coordinates.lat},${updatedLocation.coordinates.lng}`);
@@ -47,13 +52,36 @@ class Results extends Component {
                 const pollutionInfoRes = responses[1];
 
                 let updatedLocationInfo = { ...updatedLocation.info };
-                updatedLocationInfo = locationInfoRes.data.results[0].locations[0]
+                updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
                 updatedLocation.info = updatedLocationInfo;
 
-                let updatedData = { ...this.state.data };
-                updatedData = pollutionInfoRes.data;
+                let updatedPollutionData = { ...this.state.data };
+                console.log(pollutionInfoRes.data.current.values);
 
-                this.setState({ loading: false, location: updatedLocation, data: updatedData }, () => {
+
+                updatedPollutionData = pollutionInfoRes.data;
+
+                let valuesArray = pollutionInfoRes.data.current.values;
+                var pollutionObject = {};
+                for (let i = 0; i < valuesArray.length; i++) {
+                    pollutionObject[valuesArray[i].name] = valuesArray[i].value;
+                }
+                console.log(pollutionObject);
+                let updatedDust = {
+                    PM1: null,
+                    PM25: null,
+                    PM10: null
+                }
+                for (let key in updatedDust) {
+                    for (let property in pollutionObject) {
+                        if (key === property) {
+                            updatedDust[key] = pollutionObject[property];
+                        }
+                    }
+                }
+                console.log(updatedDust);
+
+                this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData }, () => {
                     console.log(this.state.data);
                 });
             })).catch(errors => {
@@ -68,6 +96,7 @@ class Results extends Component {
     }
 
     render() {
+
         let results = (
             <div className={classes.Content}>
                 <MeasurementInfo location={this.state.location.info} currentData={this.state.data.current} />

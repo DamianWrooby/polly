@@ -13,7 +13,7 @@ const DaughnutChart = ({ ...props }) => {
             ctx.font = fontSize + "em Arial";
             ctx.textBaseline = "middle";
 
-            const text = props.airData.values[0].name,
+            const text = 'label',
                 textX = Math.round((width - ctx.measureText(text).width) / 2),
                 textY = height / 2;
 
