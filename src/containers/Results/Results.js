@@ -13,15 +13,23 @@ class Results extends Component {
         this.state = {
             location: {
                 coordinates: {},
-                info: {
-
-                }
+                info: {}
             },
             data: {},
             dust: {
                 PM1: null,
                 PM25: null,
                 PM10: null
+            },
+            gases: {
+                NO2: null,
+                SO2: null,
+                CO: null
+            },
+            weather: {
+                TEMPERATURE: null,
+                HUMIDITY: null,
+                PRESSURE: null
             },
             loading: true,
             error: false
@@ -67,22 +75,25 @@ class Results extends Component {
                     pollutionObject[valuesArray[i].name] = valuesArray[i].value;
                 }
                 console.log(pollutionObject);
-                let updatedDust = {
-                    PM1: null,
-                    PM25: null,
-                    PM10: null
-                }
-                for (let key in updatedDust) {
-                    for (let property in pollutionObject) {
-                        if (key === property) {
-                            updatedDust[key] = pollutionObject[property];
+
+                let updatedDust = { ...this.state.dust },
+                    updatedGases = { ...this.state.gases },
+                    updatedWeather = { ...this.state.weather };
+                const updatedMeasurementsArr = [updatedDust, updatedGases, updatedWeather];
+                updatedMeasurementsArr.forEach((obj) => {
+                    for (let key in obj) {
+                        for (let property in pollutionObject) {
+                            if (key === property) {
+                                obj[key] = pollutionObject[property];
+                            }
                         }
                     }
-                }
-                console.log(updatedDust);
+                });
 
-                this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData }, () => {
-                    console.log(this.state.data);
+                const updatedMeasurements = { updatedDust, updatedGases, updatedWeather };
+
+                this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData, dust: updatedDust, gases: updatedGases, weather: updatedWeather }, () => {
+                    console.log(this.state);
                 });
             })).catch(errors => {
                 this.setState({ loading: false, error: true });
