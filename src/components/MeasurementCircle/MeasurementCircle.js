@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './MeasurementCircle.module.css';
 import DaughnutChart from '../Charts/DaughnutChart/DaughnutChart';
 
-const MeasurementCircle = ({ airData }) => {
+const MeasurementCircle = ({ label, value }) => {
     const chartData = {
         datasets: [{
-            data: [10, 90],
+            data: [{ value }, 100],
             backgroundColor: [
                 'rgba(34, 244, 23, 1)',
                 'rgba(167, 124, 23, 1)'
@@ -36,7 +36,7 @@ const MeasurementCircle = ({ airData }) => {
     return (
         <div className={classes.MeasurementCircle}>
             <DaughnutChart
-                airData={airData}
+                label={label}
                 chartData={chartData}
                 width={90}
                 height={90}

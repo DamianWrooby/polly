@@ -90,8 +90,6 @@ class Results extends Component {
                     }
                 });
 
-                const updatedMeasurements = { updatedDust, updatedGases, updatedWeather };
-
                 this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData, dust: updatedDust, gases: updatedGases, weather: updatedWeather }, () => {
                     console.log(this.state);
                 });
@@ -107,14 +105,14 @@ class Results extends Component {
     }
 
     render() {
-
         let results = (
             <div className={classes.Content}>
                 <MeasurementInfo location={this.state.location.info} currentData={this.state.data.current} />
                 <AirQualityBox data={this.state.data.current} />
                 <div className={classes.Measurements}>
-                    <MeasurementBox label='Dust' data={this.state.data.current} />
-                    <MeasurementBox label='Weather' data={this.state.data.current} />
+                    <MeasurementBox label='Dust' data={this.state.dust} />
+                    <MeasurementBox label='Gases' data={this.state.gases} />
+                    <MeasurementBox label='Weather' data={this.state.weather} />
                 </div>
             </div>
         );

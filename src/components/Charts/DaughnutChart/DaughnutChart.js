@@ -2,6 +2,8 @@ import React from 'react';
 import { Chart, Doughnut } from 'react-chartjs-2';
 
 const DaughnutChart = ({ ...props }) => {
+    console.log(props.label);
+    const labelText = props.label;
     Chart.pluginService.register({
         beforeDraw: function (chart) {
             const width = chart.chart.width,
@@ -13,7 +15,7 @@ const DaughnutChart = ({ ...props }) => {
             ctx.font = fontSize + "em Arial";
             ctx.textBaseline = "middle";
 
-            const text = 'label',
+            const text = labelText,
                 textX = Math.round((width - ctx.measureText(text).width) / 2),
                 textY = height / 2;
 

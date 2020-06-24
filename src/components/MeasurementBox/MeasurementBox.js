@@ -3,14 +3,31 @@ import MeasurementCircle from '../MeasurementCircle/MeasurementCircle';
 import classes from './MeasurementBox.module.css';
 
 
-const MeasurementBox = ({ data, label }) => {
+const MeasurementBox = ({ label, data }) => {
+
+    const dataArr = [];
+
+    for (let key in data) {
+        dataArr.push({ label: key, value: data[key] });
+    }
+    console.log(dataArr);
+
+    let circles = (
+        <div className={classes.Circles}>
+            {dataArr.map((el) => {
+                return (
+                    <MeasurementCircle key={el.label} label={el.label} value={el.value} />
+                );
+            })
+            }
+        </div>
+    );
+
     return (
+
         <div className={classes.MeasurementBox}>
             <div className={classes.Label}>{label}</div>
-            <div className={classes.Circles}>
-                <MeasurementCircle airData={data} />
-                <MeasurementCircle airData={data} />
-            </div>
+            {circles}
         </div>
     );
 
