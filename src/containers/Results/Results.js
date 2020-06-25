@@ -15,7 +15,7 @@ class Results extends Component {
                 coordinates: {},
                 info: {}
             },
-            data: {},
+            data: {
             dust: {
                 PM1: null,
                 PM25: null,
@@ -30,7 +30,8 @@ class Results extends Component {
                 TEMPERATURE: null,
                 HUMIDITY: null,
                 PRESSURE: null
-            },
+            }
+            },           
             loading: true,
             error: false
         }
