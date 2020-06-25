@@ -15,23 +15,24 @@ class Results extends Component {
                 coordinates: {},
                 info: {}
             },
-            data: {
-            dust: {
-                PM1: null,
-                PM25: null,
-                PM10: null
+            data: {},
+            measurements: {
+                dust: {
+                    PM1: null,
+                    PM25: null,
+                    PM10: null
+                },
+                gases: {
+                    NO2: null,
+                    SO2: null,
+                    CO: null
+                },
+                weather: {
+                    TEMPERATURE: null,
+                    HUMIDITY: null,
+                    PRESSURE: null
+                }
             },
-            gases: {
-                NO2: null,
-                SO2: null,
-                CO: null
-            },
-            weather: {
-                TEMPERATURE: null,
-                HUMIDITY: null,
-                PRESSURE: null
-            }
-            },           
             loading: true,
             error: false
         }
@@ -73,11 +74,12 @@ class Results extends Component {
                 for (let i = 0; i < valuesArray.length; i++) {
                     pollutionObject[valuesArray[i].name] = valuesArray[i].value;
                 }
-                console.log(pollutionObject);
 
-                let updatedDust = { ...this.state.dust },
-                    updatedGases = { ...this.state.gases },
-                    updatedWeather = { ...this.state.weather };
+                let updatedMeasurements = { ...this.state.measurements };
+                const updatedDust = { ...updatedMeasurements.dust },
+                    updatedGases = { ...updatedMeasurements.gases },
+                    updatedWeather = { ...updatedMeasurements.weather };
+
                 const updatedMeasurementsArr = [updatedDust, updatedGases, updatedWeather];
                 updatedMeasurementsArr.forEach((obj) => {
                     for (let key in obj) {
@@ -88,8 +90,10 @@ class Results extends Component {
                         }
                     }
                 });
+                updatedMeasurements = { dust: updatedDust, gases: updatedGases, weather: updatedWeather };
+                console.log(updatedMeasurements);
 
-                this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData, dust: updatedDust, gases: updatedGases, weather: updatedWeather }, () => {
+                this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData, measurements: updatedMeasurements }, () => {
                     console.log(this.state);
                 });
             })).catch(errors => {
