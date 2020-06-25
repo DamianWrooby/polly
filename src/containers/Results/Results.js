@@ -64,8 +64,6 @@ class Results extends Component {
                 updatedLocation.info = updatedLocationInfo;
 
                 let updatedPollutionData = { ...this.state.data };
-                console.log(pollutionInfoRes.data.current.values);
-
 
                 updatedPollutionData = pollutionInfoRes.data;
 
