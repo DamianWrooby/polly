@@ -15,7 +15,11 @@ class Results extends Component {
                 coordinates: {},
                 info: {}
             },
-            data: {},
+            time: {
+                from: '',
+                till: ''
+            },
+            index: {},
             measurements: {
                 dust: {
                     PM1: null,
@@ -65,9 +69,13 @@ class Results extends Component {
                 updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
                 updatedLocation.info = updatedLocationInfo;
 
-                let updatedPollutionData = { ...this.state.data };
+                let updatedIndex = { ...this.state.index };
+                updatedIndex = pollutionInfoRes.data.current.indexes[0];
+                console.log(updatedIndex);
 
-                updatedPollutionData = pollutionInfoRes.data;
+                let updatedTime = { ...this.state.time };
+                updatedTime.from = pollutionInfoRes.data.current.fromDateTime;
+                updatedTime.till = pollutionInfoRes.data.current.tillDateTime;
 
                 let valuesArray = pollutionInfoRes.data.current.values;
                 var pollutionObject = {};
@@ -93,7 +101,7 @@ class Results extends Component {
                 updatedMeasurements = { dust: updatedDust, gases: updatedGases, weather: updatedWeather };
                 console.log(updatedMeasurements);
 
-                this.setState({ loading: false, location: updatedLocation, data: updatedPollutionData, measurements: updatedMeasurements }, () => {
+                this.setState({ loading: false, location: updatedLocation, time: updatedTime, index: updatedIndex, measurements: updatedMeasurements }, () => {
                     console.log(this.state);
                 });
             })).catch(errors => {
@@ -110,12 +118,12 @@ class Results extends Component {
     render() {
         let results = (
             <div className={classes.Content}>
-                <MeasurementInfo location={this.state.location.info} currentData={this.state.data.current} />
-                <AirQualityBox data={this.state.data.current} />
+                <MeasurementInfo location={this.state.location.info} time={this.state.time} />
+                <AirQualityBox index={this.state.index} />
                 <div className={classes.Measurements}>
-                    <MeasurementBox label='Dust' data={this.state.dust} />
-                    <MeasurementBox label='Gases' data={this.state.gases} />
-                    <MeasurementBox label='Weather' data={this.state.weather} />
+                    <MeasurementBox label='Dust' data={this.state.measurements.dust} />
+                    <MeasurementBox label='Gases' data={this.state.measurements.gases} />
+                    <MeasurementBox label='Weather' data={this.state.measurements.weather} />
                 </div>
             </div>
         );
