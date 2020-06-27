@@ -21,9 +21,6 @@ const MeasurementInfo = ({ location, time }) => {
     const tillHourString = tillHourArr.join(':');
     const dateString = `${fromDateString} - ${tillHourString}`;
 
-    console.log(dateString);
-
-
     return (
         <div className={classes.MeasurementInfo}>
             <p>Location: <br />{locationText}</p>

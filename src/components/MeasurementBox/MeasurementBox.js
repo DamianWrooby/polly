@@ -10,7 +10,6 @@ const MeasurementBox = ({ label, data }) => {
     for (let key in data) {
         dataArr.push({ label: key, value: data[key] });
     }
-    console.log(dataArr);
 
     let circles = (
         <div className={classes.Circles}>

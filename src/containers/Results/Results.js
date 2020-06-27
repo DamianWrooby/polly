@@ -22,19 +22,47 @@ class Results extends Component {
             index: {},
             measurements: {
                 dust: {
-                    PM1: null,
-                    PM25: null,
-                    PM10: null
+                    PM1: {
+                        value: null,
+                        maxValue: null
+                    },
+                    PM25: {
+                        value: null,
+                        maxValue: 25
+                    },
+                    PM10: {
+                        value: null,
+                        maxValue: 50
+                    }
                 },
                 gases: {
-                    NO2: null,
-                    SO2: null,
-                    CO: null
+                    NO2: {
+                        value: null,
+                        maxValue: 200
+                    },
+                    SO2: {
+                        value: null,
+                        maxValue: 350
+                    },
+                    CO: {
+                        value: null,
+                        maxValue: 30000
+                    },
+                    O3: {
+                        value: null,
+                        maxValue: 100
+                    }
                 },
                 weather: {
-                    TEMPERATURE: null,
-                    HUMIDITY: null,
-                    PRESSURE: null
+                    TEMPERATURE: {
+                        value: null
+                    },
+                    HUMIDITY: {
+                        value: null
+                    },
+                    PRESSURE: {
+                        value: null
+                    }
                 }
             },
             loading: true,
@@ -71,7 +99,6 @@ class Results extends Component {
 
                 let updatedIndex = { ...this.state.index };
                 updatedIndex = pollutionInfoRes.data.current.indexes[0];
-                console.log(updatedIndex);
 
                 let updatedTime = { ...this.state.time };
                 updatedTime.from = pollutionInfoRes.data.current.fromDateTime;
@@ -84,11 +111,28 @@ class Results extends Component {
                 }
 
                 let updatedMeasurements = { ...this.state.measurements };
+                console.log(updatedMeasurements);
                 const updatedDust = { ...updatedMeasurements.dust },
                     updatedGases = { ...updatedMeasurements.gases },
                     updatedWeather = { ...updatedMeasurements.weather };
 
+                console.log(updatedDust);
+
                 const updatedMeasurementsArr = [updatedDust, updatedGases, updatedWeather];
+
+                updatedMeasurementsArr.forEach((obj) => {
+                    for (let key in obj) {
+                        for (let property in pollutionObject) {
+                            if (key === property) {
+                                obj[key].value = pollutionObject[property];
+                            }
+                        }
+                    }
+                });
+                console.log(updatedMeasurementsArr);
+
+
+                /*
                 updatedMeasurementsArr.forEach((obj) => {
                     for (let key in obj) {
                         for (let property in pollutionObject) {
@@ -98,6 +142,7 @@ class Results extends Component {
                         }
                     }
                 });
+                */
                 updatedMeasurements = { dust: updatedDust, gases: updatedGases, weather: updatedWeather };
                 console.log(updatedMeasurements);
 
