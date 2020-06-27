@@ -2,8 +2,7 @@ import React from 'react';
 import classes from './MeasurementCircle.module.css';
 import DaughnutChart from '../Charts/DaughnutChart/DaughnutChart';
 
-const MeasurementCircle = ({ label, value, max }) => {
-    const maxValue = 1000;
+const MeasurementCircle = ({ label, value, maxValue }) => {
     const chartData = {
         datasets: [{
             data: [value, maxValue],

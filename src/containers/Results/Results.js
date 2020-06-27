@@ -131,18 +131,6 @@ class Results extends Component {
                 });
                 console.log(updatedMeasurementsArr);
 
-
-                /*
-                updatedMeasurementsArr.forEach((obj) => {
-                    for (let key in obj) {
-                        for (let property in pollutionObject) {
-                            if (key === property) {
-                                obj[key] = pollutionObject[property];
-                            }
-                        }
-                    }
-                });
-                */
                 updatedMeasurements = { dust: updatedDust, gases: updatedGases, weather: updatedWeather };
                 console.log(updatedMeasurements);
 
@@ -166,9 +154,9 @@ class Results extends Component {
                 <MeasurementInfo location={this.state.location.info} time={this.state.time} />
                 <AirQualityBox index={this.state.index} />
                 <div className={classes.Measurements}>
-                    <MeasurementBox label='Dust' data={this.state.measurements.dust} />
-                    <MeasurementBox label='Gases' data={this.state.measurements.gases} />
-                    <MeasurementBox label='Weather' data={this.state.measurements.weather} />
+                    <MeasurementBox type='pollution' label='Dust' data={this.state.measurements.dust} />
+                    <MeasurementBox type='pollution' label='Gases' data={this.state.measurements.gases} />
+                    <MeasurementBox type='weather' label='Weather' data={this.state.measurements.weather} />
                 </div>
             </div>
         );
