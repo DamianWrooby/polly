@@ -7,8 +7,8 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
         datasets: [{
             data: [value, maxValue],
             backgroundColor: [
-                'rgba(34, 244, 23, 1)',
-                'rgba(167, 124, 23, 1)'
+                '#6eb6ff',
+                '#90f2ff'
             ],
             borderWidth: 0,
 

@@ -1,8 +1,12 @@
 .Wrapper {
     width: 100vw;
     height: 100vh;
+    background: rgb(159,244,255);
+    background: radial-gradient(circle, rgba(159,244,255,1) 0%, rgba(224,252,255,1) 66%);   
 }
+
 .Main {
+    background-color: #fff;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -14,5 +18,25 @@
 }
 .Content {
     flex-basis: 100%;
-    padding: 5vw;
+    padding: 2.5rem;
 }
+/*
+.Circle1 {
+    border: 1px solid #eaf5ff;
+    border-radius: 50%;
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    top: -16vh;
+    left: -11vw;
+} 
+.Circle2 {
+    border: 2px solid #eaf5ff;
+    border-radius: 50%;
+    position: absolute;
+    width: 38vw;
+    height: 38vw;
+    top: -19vh;
+    left: -14vw;
+} 
+*/

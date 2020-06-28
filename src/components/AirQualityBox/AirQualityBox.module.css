@@ -3,5 +3,8 @@
 }
 .AirQualityBox {
     width: 50%;
-    height: 100px;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 2rem;
 }

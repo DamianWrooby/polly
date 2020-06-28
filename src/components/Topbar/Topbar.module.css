@@ -1,5 +1,8 @@
 .Topbar {
+    background: rgb(95,208,255);
+    background: linear-gradient(160deg, #6eb6ff 0%, #90f2ff 100%);
     padding: 0.5rem;
     display: flex;
     justify-content: space-between;
+    border-radius: 2em 2em 0 0;
 }
