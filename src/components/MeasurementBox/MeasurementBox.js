@@ -1,5 +1,7 @@
 import React from 'react';
 import MeasurementCircle from '../MeasurementCircle/MeasurementCircle';
+import WeatherCircle from '../WeatherCircle/WeatherCircle';
+
 import classes from './MeasurementBox.module.css';
 
 
@@ -41,7 +43,7 @@ const MeasurementBox = ({ type, label, data }) => {
                     <div className={classes.Circles}>
                         {dataArr.map((el) => {
                             return (
-                                <p key={el.label} >Weather Circle</p>
+                                <WeatherCircle key={el.label} label={el.label} value={el.value} />
                             );
                         })
                         }
