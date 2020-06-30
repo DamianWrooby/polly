@@ -2,5 +2,8 @@
     width: 26%; 
 }
 .Label {
-
+    text-align: center;
+    margin-bottom: 0.4rem;
+    position: relative;
+    top: 55%;
 }

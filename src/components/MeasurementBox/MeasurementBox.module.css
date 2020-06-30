@@ -10,3 +10,9 @@
     display: flex;
     justify-content: space-between;
 }
+.Label {
+    margin-bottom: 1.5rem;
+}
+.Pollution {
+    margin-top: -1.5rem;
+}

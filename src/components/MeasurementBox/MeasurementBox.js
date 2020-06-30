@@ -17,10 +17,11 @@ const MeasurementBox = ({ type, label, data }) => {
                 }
             };
             console.log(dataArr);
+            let classList = [classes.Circles, classes.Pollution];
             box = dataArr.length !== 0 ? (
                 <div className={classes.MeasurementBox}>
                     <div className={classes.Label}>{label}</div>
-                    <div className={classes.Circles}>
+                    <div className={classList.join(' ')}>
                         {dataArr.map((el) => {
                             return (
                                 <MeasurementCircle key={el.label} label={el.label} value={el.value} maxValue={el.maxValue} />
