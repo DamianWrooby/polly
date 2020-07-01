@@ -5,8 +5,9 @@
     width: 50%;
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px solid grey;
+    box-shadow: -3px -3px 3px #ffffff73, 7px 6px 24px rgba(94, 104, 121, .288);    
     border-radius: 2rem;
+    background: linear-gradient(138deg, rgba(247,253,255,1) 27%, rgba(236,251,255,1) 100%);
 }
 .Index, .Advice {
     margin: .5rem 0;

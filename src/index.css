@@ -34,3 +34,8 @@ a {
     color: inherit;
     text-decoration: none;
   }
+  .chartjs-render-monitor {
+    box-shadow: -3px -3px 3px #ffffff73, 3px 3px 7px rgba(94, 104, 121, .288);
+    border-radius: 50%;
+    background: #fff;
+  }

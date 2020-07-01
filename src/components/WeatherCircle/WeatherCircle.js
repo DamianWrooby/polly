@@ -24,7 +24,7 @@ const WeatherCircle = ({ label, value }) => {
     return (
         <div className={classes.WeatherCircle}>
             <h2 className={classes.Label}>{label}</h2>
-            {valueString}
+            <p>{valueString}</p>
         </div>
     );
 };
