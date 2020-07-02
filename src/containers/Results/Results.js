@@ -92,6 +92,7 @@ class Results extends Component {
             .then(axios.spread((...responses) => {
                 const locationInfoRes = responses[0];
                 const pollutionInfoRes = responses[1];
+                console.log(pollutionInfoRes.data);
 
                 let updatedLocationInfo = { ...updatedLocation.info };
                 updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
