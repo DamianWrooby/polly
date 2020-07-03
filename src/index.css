@@ -19,9 +19,10 @@ time, mark, audio, video {
 html * {
     /* background: rgba(117, 131, 138, 0.1);
     box-shadow: 0 0 0 1px rgb(176, 176, 177);
-    */
     font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Michroma', sans-serif;
+    */
+    color: rgb(88, 146, 173);
+    font-family: 'Manjari', sans-serif;
     font-weight: 300;
     font-size: 14px;
 }

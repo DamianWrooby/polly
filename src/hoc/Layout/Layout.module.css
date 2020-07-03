@@ -6,7 +6,7 @@
 }
 
 .Main {
-    background-color: #fff;
+    background-color: rgb(246, 251, 253);
     position: absolute;
     display: flex;
     flex-direction: column;
