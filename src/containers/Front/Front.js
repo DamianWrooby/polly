@@ -11,6 +11,7 @@ class Front extends Component {
         super(props);
         this.state = {
             query: '',
+            valid: true,
             location: {
                 lat: null,
                 lng: null
@@ -21,8 +22,15 @@ class Front extends Component {
     }
 
     inputChangedHandler = (event) => {
-        this.setState({ query: event.target.value });
+        const updatedInputValue = event.target.value;
+        const updatedValidation = this.checkValidity(updatedInputValue);
+        this.setState({ query: updatedInputValue, valid: updatedValidation });
     }
+
+    checkValidity = (value) => {
+        console.log(value.trim(), value.trim() !== '');
+        return value.trim() !== '';
+    };
 
     searchHandler = (event) => {
         event.preventDefault();
@@ -55,9 +63,12 @@ class Front extends Component {
             <Input
                 value={this.state.query}
                 changed={this.inputChangedHandler}
-                label='Search location'
+                blured={this.inputChangedHandler}
+                label='Type location e.g. Bydgoszcz, Poland'
+                invalid={!this.state.valid}
+                validationFeedback='This field cannot be empty'
             />
-            <button type="submit">
+            <button disabled={!this.state.valid} type="submit">
                 Search
             </button>
         </form>);

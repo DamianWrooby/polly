@@ -1,6 +1,27 @@
 .Input {
     display: inline-block;
 }
+.Input input {
+    width: 100%;
+}
 label {
     display: block;
 } 
+.Invalid {
+	border: 1px solid red;
+	background-color: salmon;
+}
+.Feedback {
+    position: absolute;
+	margin: auto;
+	text-align: left;
+	font-size: 13px;
+	color: red;
+	height: 0;
+	opacity: 0;
+}
+.In {
+	transition: all 0.2s ease-in-out;
+	opacity: 1;
+	height: 100%;
+}
