@@ -4,7 +4,7 @@ import classes from './AirQualityBox.module.css';
 const AirQualityBox = ({ index }) => {
     const indexValue = index ? (
         <div className={classes.Index}>
-            <p>Pollution level: {index.level.toLowerCase().replace('_', ' ')}</p>
+            <p><strong>Pollution level: </strong>{index.level.toLowerCase().replace('_', ' ')}</p>
         </div>
     ) : null;
 
@@ -26,7 +26,7 @@ const AirQualityBox = ({ index }) => {
             adviceText = 'Stay at home and close all of the windows';
             break;
         case 'UNKNOWN':
-            adviceText = 'No sensors in this area. Try searching for a different location.';
+            adviceText = 'No sensors in this area. Pollution info is not available. Try searching for a different location.';
             break;
         default:
             adviceText = '';

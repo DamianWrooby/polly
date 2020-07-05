@@ -1,5 +1,6 @@
 .MeasurementCircle {
-    width: 26%; 
+    width: 4rem; 
+    padding: 0.3rem; 
 }
 .Label {
     text-align: center;

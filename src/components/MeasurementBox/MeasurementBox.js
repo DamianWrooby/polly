@@ -20,7 +20,7 @@ const MeasurementBox = ({ type, label, data }) => {
             let classList = [classes.Circles, classes.Pollution];
             box = dataArr.length !== 0 ? (
                 <div className={classes.MeasurementBox}>
-                    <div className={classes.Label}>{label}</div>
+                    <h2 className={classes.Label}>{label}</h2>
                     <div className={classList.join(' ')}>
                         {dataArr.map((el) => {
                             return (
