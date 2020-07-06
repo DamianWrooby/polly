@@ -4,7 +4,6 @@
     background: rgb(159,244,255);
     background: radial-gradient(circle, rgba(159,244,255,1) 0%, rgba(224,252,255,1) 66%);   
 }
-
 .Main {
     background-color: rgb(246, 251, 253);
     position: absolute;
@@ -17,27 +16,16 @@
     border-radius: 2em;
     box-shadow: -3px -3px 15px #ffffff73, 3px 3px 50px rgba(94, 104, 121, .288);
 }
+nav {
+    z-index: 1;
+}
 .Content {
     flex-basis: 100%;
-    padding: 2.5rem;
+    padding: 0 2.5rem 2.5rem 2.5rem;
 }
-/*
-.Circle1 {
-    border: 1px solid #eaf5ff;
-    border-radius: 50%;
-    position: absolute;
-    width: 30vw;
-    height: 30vw;
-    top: -16vh;
-    left: -11vw;
-} 
-.Circle2 {
-    border: 2px solid #eaf5ff;
-    border-radius: 50%;
-    position: absolute;
-    width: 38vw;
-    height: 38vw;
-    top: -19vh;
-    left: -14vw;
-} 
-*/
+.Curved {
+    margin-top: -22%;
+}
+.Curved svg {
+    display: block;
+}
