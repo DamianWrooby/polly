@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './MeasurementCircle.module.css';
 import DaughnutChart from '../Charts/DaughnutChart/DaughnutChart';
+import Tooltip from '../Tooltip/Tooltip';
 
 const MeasurementCircle = ({ label, value, maxValue }) => {
     const chartData = {
@@ -35,6 +36,10 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
 
     return (
         <div className={classes.MeasurementCircle}>
+            <div className={classes.Tooltip}>
+                <Tooltip label={label} value={value} maxValue={maxValue} />
+
+            </div>
             <h2 className={classes.Label}>{label}</h2>
             <DaughnutChart
                 chartData={chartData}
