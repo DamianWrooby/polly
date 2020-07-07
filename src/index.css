@@ -32,7 +32,33 @@ a {
     text-decoration: none;
   }
   .chartjs-render-monitor {
-    box-shadow: -3px -3px 3px #ffffff73, 3px 3px 7px rgba(94, 104, 121, .288);
+    box-shadow: -3px -3px 3px #ffffff73, 3px 3px 7px rgba(0, 86, 245, 0.288);
     border-radius: 50%;
     background: #fff;
+    animation: chartjs-render-animation 0.001s, pulse 2s infinite !important;
+  }
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(0, 86, 245, 0.4);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(0, 86, 245, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 86, 245, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(0, 86, 245, 0.4);
+      box-shadow: 0 0 0 0 rgba(0, 86, 245, 0.4);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(0, 86, 245, 0);
+        box-shadow: 0 0 0 10px rgba(0, 86, 245, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(0, 86, 245, 0);
+        box-shadow: 0 0 0 0 rgba(0, 86, 245, 0);
+    }
   }
