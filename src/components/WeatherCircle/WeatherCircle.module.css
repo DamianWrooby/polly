@@ -1,5 +1,6 @@
 .WeatherCircle {
     text-align: center;
+    margin: 1rem;
 }
 .Label {
     font-size: 11px;

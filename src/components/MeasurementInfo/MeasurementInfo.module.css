@@ -4,3 +4,8 @@
     padding: 0 1rem;
     margin: 0 0 1.5rem 0;
 }
+.LocationLabel {
+    color: rgb(76, 150, 185);
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
+}

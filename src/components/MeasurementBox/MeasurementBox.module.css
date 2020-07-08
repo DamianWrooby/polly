@@ -6,9 +6,6 @@
     padding: 1rem;
     background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(203, 244, 255) 100%);
 }
-.MeasurementBox:hover canvas {
-    animation: none;
-}
 .Circles {
     display: flex;
     justify-content: space-between;

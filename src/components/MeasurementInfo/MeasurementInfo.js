@@ -23,8 +23,9 @@ const MeasurementInfo = ({ location, time }) => {
 
     return (
         <div className={classes.MeasurementInfo}>
-            <p>Location: <br />{locationText}</p>
-            <p>Measurement time: <br />{dateString}</p>
+            <p><span className={classes.LocationLabel}>Location:</span><br /> {locationText}</p>
+
+            <p><span className={classes.LocationLabel}>Measurement time:</span><br /> {dateString}</p>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 .MeasurementCircle {
     width: 4rem; 
     padding: 0.4rem; 
+    position: relative;
 }
 .Label {
     text-align: center;
@@ -12,15 +13,27 @@
 .Tooltip {
     visibility: hidden;
     width: 120px;
-    background-color: black;
-    color: #fff;
+    background-color: #fff;
+    color: rgb(148, 194, 216);
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
+    margin-left: 1.4rem;
+    top: -2rem;
 
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
+}
+.Tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
 }
 
 .MeasurementCircle:hover .Tooltip {
