@@ -38,7 +38,6 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
         <div className={classes.MeasurementCircle}>
             <div className={classes.Tooltip}>
                 <Tooltip label={label} value={value} maxValue={maxValue} />
-
             </div>
             <h2 className={classes.Label}>{label}</h2>
             <DaughnutChart

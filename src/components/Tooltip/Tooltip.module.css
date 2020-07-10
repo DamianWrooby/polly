@@ -1,0 +1,19 @@
+.Label {
+    font-size: .7rem;
+    position: relative;
+    left: -3rem;
+}
+.Value {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+    color: rgb(98, 122, 134);
+}
+.Value::after {
+    content: 'µg/m³';
+    font-size: 0.8rem;
+    font-weight: 100;
+}
+.Norm {
+    font-size: 0.6rem;
+    font-weight: 100;
+}

@@ -1,12 +1,14 @@
 .Results {
     height: 100%;
 }
+
 .Content {
     display: flex;
     flex-direction: column;
 }
+
 .Measurements {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
