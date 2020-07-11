@@ -1,15 +1,26 @@
 import React from 'react';
 import classes from './MeasurementCircle.module.css';
-import DaughnutChart from '../Charts/DaughnutChart/DaughnutChart';
+import DaughnutChart from '../Charts/DoughnutChart/DoughnutChart';
 import Tooltip from '../Tooltip/Tooltip';
 
 const MeasurementCircle = ({ label, value, maxValue }) => {
+    const pollutionLevel = maxValue ? (value / maxValue) * 100 : null;
+    let chartColor = '#6eb6ff';
+    let chartColorBackground = '#90f2ff';
+    if (pollutionLevel > 50) {
+        chartColor = '#ff6200';
+    } else if (pollutionLevel > 80) {
+        chartColor = '#ff4000';
+    } else if (pollutionLevel > 100) {
+        chartColorBackground = '#ff0000';
+    }
+    console.log(pollutionLevel);
     const chartData = {
         datasets: [{
             data: [value, maxValue],
             backgroundColor: [
-                '#6eb6ff',
-                '#90f2ff'
+                chartColor,
+                chartColorBackground
             ],
             borderWidth: 0,
 

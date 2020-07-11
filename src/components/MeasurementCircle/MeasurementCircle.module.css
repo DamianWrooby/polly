@@ -13,6 +13,7 @@
 }
 
 .Tooltip {
+    visibility: hidden;
     opacity: 0;
     width: 120px;
     padding: 0.7rem;
@@ -71,5 +72,9 @@
 
 .MeasurementCircle:hover .Tooltip {
     opacity: 1;
+    visibility: visible;
     transition: all 0.4s;
+}
+canvas.chartjs-render-monitor {
+    border: 1px solid red;
 }

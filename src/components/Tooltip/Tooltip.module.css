@@ -1,3 +1,6 @@
+.Tooltip {
+    min-height: 77.5px;
+}
 .Label {
     font-size: .7rem;
     position: relative;

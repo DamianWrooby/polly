@@ -27,10 +27,7 @@ class Front extends Component {
         this.setState({ query: updatedInputValue, valid: updatedValidation });
     }
 
-    checkValidity = (value) => {
-        console.log(value.trim(), value.trim() !== '');
-        return value.trim() !== '';
-    };
+    checkValidity = (value) => value.trim() !== '';
 
     searchHandler = (event) => {
         event.preventDefault();
