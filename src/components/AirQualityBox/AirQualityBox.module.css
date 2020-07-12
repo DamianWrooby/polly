@@ -1,14 +1,79 @@
-.Wrapper {
-    width: 100%; 
-}
 .AirQualityBox {
-    width: 68%;
+    width: 60%;
     margin: 1rem 0;
     padding: 1rem;
     box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, .288);    
     border-radius: 2rem;
-    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(203, 244, 255) 100%);
+    position: relative;
+
 }
-.Index, .Advice {
+.GradientLow {
+    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(222, 248, 255) 100%);
+}
+.GradientLow::after {
+    content: "";
+    background: url('../../assets/img/pollution-low-4-01.png'); 
+    background-position: right;
+    border-radius: 30px;
+    opacity: 0.3;
+    top: -40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;   
+    background-repeat: no-repeat;
+  }
+.GradientMedium {
+    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(193, 234, 245) 100%);
+}
+.GradientMedium::after {
+    content: "";
+    background: url('../../assets/img/pollution-medium-2-01.png'); 
+    background-position: right;
+    border-radius: 30px;
+    opacity: 0.3;
+    top: -40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;   
+    background-repeat: no-repeat;
+  }
+.GradientHigh {
+    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(127, 169, 180) 100%);
+}
+.GradientHigh::after {
+    content: "";
+    background: url('../../assets/img/pollution-high-8-01.png'); 
+    background-position: right;
+    border-radius: 30px;
+    opacity: 0.3;
+    top: -40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 0;   
+    background-repeat: no-repeat;
+  }
+.Index strong {
+    color: rgb(76, 150, 185);
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
+}
+.Index p, .Advice p {
+    font-size: 1.2rem;
+}
+.Index {
     margin: .5rem 0 .5rem .8rem;
+    position: relative;
+    z-index: 1;
+}
+.Advice {
+    max-width: 50%;
+    margin: .5rem 0 1.5rem .8rem;
+    position: relative;
+    z-index: 1;
 }
