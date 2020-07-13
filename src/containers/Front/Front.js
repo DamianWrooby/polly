@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from '../../components/UI/Input/Input';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import Button from '../../components/UI/Button/Button';
 import classes from './Front.module.css';
 import axios from '../../axios-geocode';
 
@@ -30,6 +31,7 @@ class Front extends Component {
     checkValidity = (value) => value.trim() !== '';
 
     searchHandler = (event) => {
+
         event.preventDefault();
         this.setState({ loading: true });
         const key = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
@@ -61,13 +63,13 @@ class Front extends Component {
                 value={this.state.query}
                 changed={this.inputChangedHandler}
                 blured={this.inputChangedHandler}
-                label='Type location e.g. Bydgoszcz, Poland'
+                label='Type location '
+                sublabel='e.g. Mariacka, Gdańsk, Poland'
                 invalid={!this.state.valid}
                 validationFeedback='This field cannot be empty'
             />
-            <button disabled={!this.state.valid} type="submit">
-                Search
-            </button>
+            <Button disabled={!this.state.valid} icon="fa fa-search" type="submit" />
+
         </form>);
 
         if (this.state.loading) {

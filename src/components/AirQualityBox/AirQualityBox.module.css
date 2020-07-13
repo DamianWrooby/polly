@@ -12,7 +12,7 @@
 }
 .GradientLow::after {
     content: "";
-    background: url('../../assets/img/pollution-low-4-01.png'); 
+    background: url('../../assets/img/pollution-low.png'); 
     background-position: right;
     border-radius: 30px;
     opacity: 0.3;
@@ -29,7 +29,7 @@
 }
 .GradientMedium::after {
     content: "";
-    background: url('../../assets/img/pollution-medium-2-01.png'); 
+    background: url('../../assets/img/pollution-medium.png'); 
     background-position: right;
     border-radius: 30px;
     opacity: 0.3;
@@ -46,7 +46,7 @@
 }
 .GradientHigh::after {
     content: "";
-    background: url('../../assets/img/pollution-high-8-01.png'); 
+    background: url('../../assets/img/pollution-high.png'); 
     background-position: right;
     border-radius: 30px;
     opacity: 0.3;
@@ -58,7 +58,7 @@
     z-index: 0;   
     background-repeat: no-repeat;
   }
-.Index strong {
+.Index span {
     color: rgb(76, 150, 185);
     font-size: 1.2rem;
     text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;

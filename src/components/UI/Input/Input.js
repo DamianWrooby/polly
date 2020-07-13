@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Input.module.css';
 
-const input = ({ value, changed, blured, label, invalid, validationFeedback }) => {
+const input = ({ value, changed, blured, label, sublabel, invalid, validationFeedback }) => {
     let inputElement = null;
     const inputClasses = [];
     const feedbackClasses = [classes.Feedback];
@@ -20,7 +20,7 @@ const input = ({ value, changed, blured, label, invalid, validationFeedback }) =
 
     return (
         <div className={classes.Input}>
-            <label>{label}</label>
+            <label><span className={classes.Label}>{label}</span><br /><span className={classes.Sublabel}>{sublabel}</span></label>
             {inputElement}
             <p className={feedbackClasses.join(' ')}>{validationFeedback}</p>
         </div>
