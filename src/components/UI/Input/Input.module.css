@@ -2,15 +2,22 @@
     display: inline-block;
 }
 .Input input {
+	outline: none;
 	width: 97%;
 	height: 2rem;
-    border-radius: .3rem;
+	border-radius: .5rem;
+	background-color: #e6f2ff;
+	border: 2px solid rgb(148, 194, 216);
 	margin-top: .5rem;
 	font-size: 1.2rem;
 }
 input {
-    display: block;
+	outline: none;
+	display: block;
 } 
+input[type="text"], input[type="password"], textarea, select {
+	outline: none;
+}
 .Label {
 	font-size: 2.5rem;
 	font-weight: bold;
@@ -22,7 +29,7 @@ input {
 }
 .Invalid {
 	border: 1px solid red;
-	background-color: salmon;
+	background-color: salmon !important;
 }
 .Feedback {
     position: absolute;

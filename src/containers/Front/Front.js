@@ -31,29 +31,33 @@ class Front extends Component {
     checkValidity = (value) => value.trim() !== '';
 
     searchHandler = (event) => {
-
         event.preventDefault();
-        this.setState({ loading: true });
-        const key = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
+        if (!this.state.query) {
+            this.setState({ valid: false });
+        } else {
+            this.setState({ loading: true });
+            const key = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
-        axios
-            .get(`address?key=${key}&location=${this.state.query}`)
-            .then((response) => {
-                const location = response.data.results[0].locations[0].latLng;
-                this.setState({ loading: false, location: location });
-                const queryParams = [];
-                for (let i in this.state.location) {
-                    queryParams.push(encodeURIComponent(i) + '=' + this.state.location[i]);
-                }
-                let queryString = queryParams.join('&');
-                this.props.history.push({
-                    pathname: '/location',
-                    search: '?' + queryString
+            axios
+                .get(`address?key=${key}&location=${this.state.query}`)
+                .then((response) => {
+                    const location = response.data.results[0].locations[0].latLng;
+                    this.setState({ loading: false, location: location });
+                    const queryParams = [];
+                    for (let i in this.state.location) {
+                        queryParams.push(encodeURIComponent(i) + '=' + this.state.location[i]);
+                    }
+                    let queryString = queryParams.join('&');
+                    this.props.history.push({
+                        pathname: '/location',
+                        search: '?' + queryString
+                    });
+                })
+                .catch((err) => {
+                    this.setState({ loading: false, error: true });
                 });
-            })
-            .catch((err) => {
-                this.setState({ loading: false, error: true });
-            });
+        }
+
 
     }
 
