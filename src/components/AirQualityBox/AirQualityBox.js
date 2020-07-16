@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './AirQualityBox.module.css';
 
@@ -54,6 +55,14 @@ const AirQualityBox = ({ index }) => {
       {advice}
     </div>
   );
+};
+
+AirQualityBox.propTypes = {
+  index: PropTypes.shape({
+    level: PropTypes.shape({
+      toLowerCase: PropTypes.func,
+    }),
+  }),
 };
 
 export default AirQualityBox;

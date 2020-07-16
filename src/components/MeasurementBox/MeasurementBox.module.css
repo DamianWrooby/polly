@@ -1,25 +1,29 @@
 .MeasurementBox {
-    height: auto;
-    min-width: 12rem;
-    box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, .288);
-    border-radius: 2rem;
-    margin: 1rem 1rem 0 0;
-    padding: 1rem;
-    background: linear-gradient(138deg, rgba(247, 253, 255, 1) 47%, rgb(203, 244, 255) 100%);
+  height: auto;
+  box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, 0.288);
+  border-radius: 2rem;
+  margin: 1rem 1rem 0 0;
+  padding: 1rem;
+  background: linear-gradient(
+    138deg,
+    rgba(247, 253, 255, 1) 47%,
+    rgb(203, 244, 255) 100%
+  );
+  flex-grow: 2;
 }
 
 .Circles {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Label {
-    color: rgb(76, 150, 185);
-    margin: 0 0 1rem .8rem;
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
+  color: rgb(76, 150, 185);
+  margin: 0 0 1rem 0.8rem;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
 }
 
 .Pollution {
-    margin-top: -1.5rem;
+  margin-top: -1.5rem;
 }

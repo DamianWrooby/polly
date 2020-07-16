@@ -81,8 +81,8 @@ class Results extends Component {
     const updatedCoordinates = { ...updatedLocation.coordinates };
     // eslint-disable-next-line no-restricted-syntax
     for (const param of query.entries()) {
-      console.log(param[0], param[1]);
-      updatedCoordinates[param[0]] = param[1];
+      // updatedCoordinates[param[0]] = param[1];
+      [, updatedCoordinates[param[0]]] = param;
     }
     updatedLocation.coordinates = updatedCoordinates;
     this.setState({ location: updatedLocation });

@@ -1,12 +1,12 @@
 .NavigationItems {
-    margin: 1em;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  margin: 0.3em;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 a {
-    font-size: 1rem;
-    color: #fff;
+  font-size: 1rem;
+  color: #fff;
 }

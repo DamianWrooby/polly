@@ -1,79 +1,92 @@
 .AirQualityBox {
-    width: 60%;
-    margin: 1rem 0;
-    padding: 1rem;
-    box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, .288);    
-    border-radius: 2rem;
-    position: relative;
-
+  width: 60%;
+  min-height: 110px;
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, 0.288);
+  border-radius: 2rem;
+  position: relative;
 }
 .GradientLow {
-    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(222, 248, 255) 100%);
+  background: linear-gradient(
+    138deg,
+    rgba(247, 253, 255, 1) 47%,
+    rgb(222, 248, 255) 100%
+  );
 }
 .GradientLow::after {
-    content: "";
-    background: url('../../assets/img/pollution-low.png'); 
-    background-position: right;
-    border-radius: 30px;
-    opacity: 0.3;
-    top: -40px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: 0;   
-    background-repeat: no-repeat;
-  }
+  content: '';
+  background: url('../../assets/img/pollution-low.png');
+  background-position: right;
+  border-radius: 30px;
+  opacity: 0.3;
+  top: -40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
 .GradientMedium {
-    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(193, 234, 245) 100%);
+  background: linear-gradient(
+    138deg,
+    rgba(247, 253, 255, 1) 47%,
+    rgb(193, 234, 245) 100%
+  );
 }
 .GradientMedium::after {
-    content: "";
-    background: url('../../assets/img/pollution-medium.png'); 
-    background-position: right;
-    border-radius: 30px;
-    opacity: 0.3;
-    top: -40px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: 0;   
-    background-repeat: no-repeat;
-  }
+  content: '';
+  background: url('../../assets/img/pollution-medium.png');
+  background-position: right;
+  border-radius: 30px;
+  opacity: 0.3;
+  top: -40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
 .GradientHigh {
-    background: linear-gradient(138deg, rgba(247,253,255,1) 47%, rgb(127, 169, 180) 100%);
+  background: linear-gradient(
+    138deg,
+    rgba(247, 253, 255, 1) 47%,
+    rgb(127, 169, 180) 100%
+  );
 }
 .GradientHigh::after {
-    content: "";
-    background: url('../../assets/img/pollution-high.png'); 
-    background-position: right;
-    border-radius: 30px;
-    opacity: 0.3;
-    top: -40px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: 0;   
-    background-repeat: no-repeat;
-  }
-.Index span {
-    color: rgb(76, 150, 185);
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
+  content: '';
+  background: url('../../assets/img/pollution-high.png');
+  background-position: right;
+  border-radius: 30px;
+  opacity: 0.3;
+  top: -40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+  background-repeat: no-repeat;
 }
-.Index p, .Advice p {
-    font-size: 1.2rem;
+.Index span {
+  color: rgb(76, 150, 185);
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
+}
+.Index p,
+.Advice p {
+  font-size: 1.2rem;
 }
 .Index {
-    margin: .5rem 0 .5rem .8rem;
-    position: relative;
-    z-index: 1;
+  margin: 0.5rem 0 0.5rem 0.8rem;
+  position: relative;
+  z-index: 1;
 }
 .Advice {
-    max-width: 50%;
-    margin: .5rem 0 1.5rem .8rem;
-    position: relative;
-    z-index: 1;
+  max-width: 50%;
+  margin: 0.5rem 0 1.5rem 0.8rem;
+  position: relative;
+  z-index: 1;
 }
