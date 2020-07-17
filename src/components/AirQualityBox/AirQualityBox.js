@@ -59,9 +59,7 @@ const AirQualityBox = ({ index }) => {
 
 AirQualityBox.propTypes = {
   index: PropTypes.shape({
-    level: PropTypes.shape({
-      toLowerCase: PropTypes.func,
-    }),
+    level: PropTypes.string,
   }),
 };
 

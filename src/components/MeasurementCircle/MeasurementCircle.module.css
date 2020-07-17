@@ -1,80 +1,80 @@
 .MeasurementCircle {
-    width: 4rem;
-    padding: 0.4rem;
-    position: relative;
+  width: 4rem;
+  padding: 0.4rem;
+  position: relative;
 }
 
 .Label {
-    text-align: center;
-    margin-bottom: 0.4rem;
-    position: relative;
-    top: 57%;
-    cursor: default;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  position: relative;
+  top: 48%;
+  cursor: default;
 }
 
 .Tooltip {
-    visibility: hidden;
-    opacity: 0;
-    width: 120px;
-    padding: 0.7rem;
-    background-color: #fff;
-    color: rgb(148, 194, 216);
-    text-align: center;
-    border-radius: 20px;
-    margin-left: 3.5rem;
-    top: -4.3rem;
-    border: 2px solid rgb(184, 217, 232);
-    transition: all 0.6s;
+  visibility: hidden;
+  opacity: 0;
+  width: 120px;
+  padding: 0.7rem;
+  background-color: #fff;
+  color: rgb(148, 194, 216);
+  text-align: center;
+  border-radius: 20px;
+  margin-left: 3.5rem;
+  top: -4.3rem;
+  border: 2px solid rgb(184, 217, 232);
+  transition: all 0.6s;
 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
 }
 
 .MeasurementCircle:hover .Tooltip::before {
-    width: 25px;
-    top: 100%;
-    left: -10px;
-    transition: all 0.6s;
+  width: 25px;
+  top: 100%;
+  left: -10px;
+  transition: all 0.6s;
 }
 
 .MeasurementCircle:hover .Tooltip::after {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .Tooltip::after {
-    transform-origin: 0 50%;
-    -webkit-transform: rotate(-240deg);
-    bottom: -2px;
-    left: -9px;
-    width: 24px;
-    content: '';
-    background-color: rgb(184, 217, 232);
-    height: 2px;
-    position: absolute;
-    opacity: 1;
-    transition: opacity .5s ease;
-    transition-delay: 0s;
-    transition-delay: 0s;
+  transform-origin: 0 50%;
+  -webkit-transform: rotate(-240deg);
+  bottom: -2px;
+  left: -9px;
+  width: 24px;
+  content: '';
+  background-color: rgb(184, 217, 232);
+  height: 2px;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  transition-delay: 0s;
+  transition-delay: 0s;
 }
 
 .Tooltip::before {
-    width: 0px;
-    bottom: -1px;
-    left: -10px;
-    content: '';
-    background-color: rgb(184, 217, 232);
-    height: 2px;
-    position: absolute;
-    transition: width 0.2s;
+  width: 0px;
+  bottom: -1px;
+  left: -10px;
+  content: '';
+  background-color: rgb(184, 217, 232);
+  height: 2px;
+  position: absolute;
+  transition: width 0.2s;
 }
 
 .MeasurementCircle:hover .Tooltip {
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.4s;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
 }
 canvas.chartjs-render-monitor {
-    border: 1px solid red;
+  border: 1px solid red;
 }
