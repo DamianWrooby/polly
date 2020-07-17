@@ -12,7 +12,7 @@ const AirQualityBox = ({ index }) => {
     </div>
   ) : null;
 
-  let boxClasses = [classes.AirQualityBox];
+  const boxClasses = [classes.AirQualityBox];
 
   let adviceText;
   switch (index.level) {

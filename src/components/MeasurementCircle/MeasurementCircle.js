@@ -7,6 +7,7 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
   const pollutionLevel = maxValue ? (value / maxValue) * 100 : null;
   let chartColor = '#6eb6ff';
   let chartColorBackground = '#90f2ff';
+
   if (pollutionLevel > 50) {
     chartColor = '#ff6200';
   } else if (pollutionLevel > 80) {

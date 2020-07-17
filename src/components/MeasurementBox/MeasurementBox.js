@@ -9,7 +9,7 @@ const MeasurementBox = ({ type, label, data }) => {
   let box;
   switch (type) {
     case 'pollution':
-      for (let key in data) {
+      for (const key in data) {
         if (data[key].value !== null) {
           dataArr.push({
             label: key,
@@ -19,7 +19,7 @@ const MeasurementBox = ({ type, label, data }) => {
         }
       }
       console.log(dataArr);
-      let classList = [classes.Circles, classes.Pollution];
+      const classList = [classes.Circles, classes.Pollution];
       box =
         dataArr.length !== 0 ? (
           <div className={classes.MeasurementBox}>
@@ -67,7 +67,7 @@ const MeasurementBox = ({ type, label, data }) => {
       box = <p>No measurement content</p>;
   }
 
-  return <React.Fragment>{box}</React.Fragment>;
+  return <>{box}</>;
 };
 
 export default MeasurementBox;
