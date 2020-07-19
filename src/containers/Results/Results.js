@@ -21,51 +21,7 @@ class Results extends Component {
         till: '',
       },
       index: {},
-      measurements: {
-        dust: {
-          PM1: {
-            value: null,
-            maxValue: null,
-          },
-          PM25: {
-            value: null,
-            maxValue: 25,
-          },
-          PM10: {
-            value: null,
-            maxValue: 50,
-          },
-        },
-        gases: {
-          NO2: {
-            value: null,
-            maxValue: 200,
-          },
-          SO2: {
-            value: null,
-            maxValue: 350,
-          },
-          CO: {
-            value: null,
-            maxValue: 30000,
-          },
-          O3: {
-            value: null,
-            maxValue: 100,
-          },
-        },
-        weather: {
-          TEMPERATURE: {
-            value: null,
-          },
-          HUMIDITY: {
-            value: null,
-          },
-          PRESSURE: {
-            value: null,
-          },
-        },
-      },
+      measurements: {},
       loading: true,
       error: false,
     };
@@ -107,29 +63,74 @@ class Results extends Component {
           console.log(pollutionInfoRes.data);
 
           let updatedLocationInfo = { ...updatedLocation.info };
-          updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
+          // updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
+          [updatedLocationInfo] = locationInfoRes.data.results[0].locations;
           updatedLocation.info = updatedLocationInfo;
 
-          let updatedIndex = { ...this.state.index };
-          updatedIndex = pollutionInfoRes.data.current.indexes[0];
+          // let updatedIndex = { ...this.state.index };
+          const updatedIndex = pollutionInfoRes.data.current.indexes[0];
 
-          let updatedTime = { ...this.state.time };
+          const updatedTime = {
+            from: '',
+            till: '',
+          };
           updatedTime.from = pollutionInfoRes.data.current.fromDateTime;
           updatedTime.till = pollutionInfoRes.data.current.tillDateTime;
 
-          let valuesArray = pollutionInfoRes.data.current.values;
-          var pollutionObject = {};
-          for (let i = 0; i < valuesArray.length; i++) {
+          const valuesArray = pollutionInfoRes.data.current.values;
+          const pollutionObject = {};
+          for (let i = 0; i < valuesArray.length; i += 1) {
             pollutionObject[valuesArray[i].name] = valuesArray[i].value;
           }
 
-          let updatedMeasurements = { ...this.state.measurements };
-          console.log(updatedMeasurements);
-          const updatedDust = { ...updatedMeasurements.dust },
-            updatedGases = { ...updatedMeasurements.gases },
-            updatedWeather = { ...updatedMeasurements.weather };
-
-          console.log(updatedDust);
+          let updatedMeasurements = {
+            dust: {
+              PM1: {
+                value: null,
+                maxValue: null,
+              },
+              PM25: {
+                value: null,
+                maxValue: 25,
+              },
+              PM10: {
+                value: null,
+                maxValue: 50,
+              },
+            },
+            gases: {
+              NO2: {
+                value: null,
+                maxValue: 200,
+              },
+              SO2: {
+                value: null,
+                maxValue: 350,
+              },
+              CO: {
+                value: null,
+                maxValue: 30000,
+              },
+              O3: {
+                value: null,
+                maxValue: 100,
+              },
+            },
+            weather: {
+              TEMPERATURE: {
+                value: null,
+              },
+              HUMIDITY: {
+                value: null,
+              },
+              PRESSURE: {
+                value: null,
+              },
+            },
+          };
+          const updatedDust = { ...updatedMeasurements.dust };
+          const updatedGases = { ...updatedMeasurements.gases };
+          const updatedWeather = { ...updatedMeasurements.weather };
 
           const updatedMeasurementsArr = [
             updatedDust,
@@ -138,13 +139,14 @@ class Results extends Component {
           ];
 
           updatedMeasurementsArr.forEach((obj) => {
-            for (let key in obj) {
-              for (let property in pollutionObject) {
+            Object.keys(obj).forEach((key) => {
+              Object.keys(pollutionObject).forEach((property) => {
                 if (key === property) {
+                  // eslint-disable-next-line no-param-reassign
                   obj[key].value = pollutionObject[property];
                 }
-              }
-            }
+              });
+            });
           });
           console.log(updatedMeasurementsArr);
 
@@ -177,45 +179,51 @@ class Results extends Component {
 
   goBackHandler = (event) => {
     event.preventDefault();
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.history.goBack();
   };
 
   render() {
+    const {
+      location: { info },
+    } = this.state;
+    const { time } = this.state;
+    const { index } = this.state;
+    const {
+      measurements: { dust },
+    } = this.state;
+    const {
+      measurements: { gases },
+    } = this.state;
+    const {
+      measurements: { weather },
+    } = this.state;
+    const { loading } = this.state;
+    const { error } = this.state;
+    console.log(this.props);
+
     let results = (
       <div className={classes.Content}>
-        <MeasurementInfo
-          location={this.state.location.info}
-          time={this.state.time}
-        />
-        <AirQualityBox index={this.state.index} />
+        <MeasurementInfo location={info} time={time} />
+        <AirQualityBox index={index} />
         <div className={classes.Measurements}>
-          <MeasurementBox
-            type="pollution"
-            label="Dust"
-            data={this.state.measurements.dust}
-          />
-          <MeasurementBox
-            type="pollution"
-            label="Gases"
-            data={this.state.measurements.gases}
-          />
-          <MeasurementBox
-            type="weather"
-            label="Weather"
-            data={this.state.measurements.weather}
-          />
+          <MeasurementBox type="pollution" label="Dust" data={dust} />
+          <MeasurementBox type="pollution" label="Gases" data={gases} />
+          <MeasurementBox type="weather" label="Weather" data={weather} />
         </div>
       </div>
     );
 
-    if (this.state.loading) {
+    if (loading) {
       results = <Spinner />;
-    } else if (this.state.error) {
+    } else if (error) {
       results = (
-        <React.Fragment>
+        <>
           <p>Cannot find this location. Try another one.</p>
-          <button onClick={this.goBackHandler}>Go back</button>
-        </React.Fragment>
+          <button type="button" onClick={this.goBackHandler}>
+            Go back
+          </button>
+        </>
       );
     }
 
@@ -226,10 +234,10 @@ class Results extends Component {
 Results.propTypes = {
   history: PropTypes.shape({
     goBack: PropTypes.func,
-  }),
+  }).isRequired,
   location: PropTypes.shape({
     search: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default withErrorHandler(Results, axios);
