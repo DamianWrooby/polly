@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import classes from './Results.module.css';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import Spinner from '../../components/UI/Spinner/Spinner';
+import Spinner from '../../components/UI/Loader/Loader';
 import MeasurementInfo from '../../components/MeasurementInfo/MeasurementInfo';
 import MeasurementBox from '../../components/MeasurementBox/MeasurementBox';
 import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';

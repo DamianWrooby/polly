@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Input from '../../components/UI/Input/Input';
-import Spinner from '../../components/UI/Spinner/Spinner';
+import Loader from '../../components/UI/Loader/Loader';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Button from '../../components/UI/Button/Button';
 import classes from './Front.module.css';
@@ -81,7 +81,7 @@ class Front extends Component {
     );
 
     if (this.state.loading) {
-      form = <Spinner />;
+      form = <Loader />;
     } else if (this.state.error) {
       form = <p>Ups. Something went wrong.</p>;
     }

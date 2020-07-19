@@ -1,0 +1,71 @@
+.Loader {
+  position: absolute;
+  left: 27%;
+  top: 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Circle {
+  position: relative;
+  margin: 1rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  background: #e6f2ff;
+  border-radius: 50%;
+  box-shadow: -7px -7px 25px 0 rgba(255, 255, 255, 0.9),
+    7px 7px 25px 0 rgba(0, 0, 0, 0.3);
+}
+
+.Circle::before {
+  content: '';
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  background: #e6f2ff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  box-shadow: inset -7px -7px 25px 0 rgba(255, 255, 255, 0.9),
+    inset 7px 7px 25px 0 rgba(0, 0, 0, 0.3);
+}
+.Circle::after {
+  content: '';
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 0.5s infinite linear;
+}
+.One::after {
+  border: 4px solid #6eb6ff;
+  border-right: solid 4px transparent;
+  border-top: solid 4px transparent;
+  border-left: solid 4px transparent;
+}
+.Two::after {
+  border: 4px solid #90f2ff;
+  border-right: solid 4px transparent;
+  border-top: solid 4px transparent;
+  border-left: solid 4px transparent;
+}
+.Three::after {
+  border: 4px solid #6eb6ff;
+  border-right: solid 4px transparent;
+  border-top: solid 4px transparent;
+  border-left: solid 4px transparent;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
