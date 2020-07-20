@@ -12,7 +12,12 @@ const AirQualityBox = ({ index }) => {
     </div>
   ) : null;
 
-  const boxClasses = [classes.AirQualityBox];
+  const boxClasses = [
+    classes.AirQualityBox,
+    'animate__animated',
+    'animate__bounceInDown',
+    'animate__fast',
+  ];
 
   let adviceText;
   switch (index.level) {

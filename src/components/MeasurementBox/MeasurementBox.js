@@ -19,12 +19,17 @@ const MeasurementBox = ({ type, label, data }) => {
         }
       }
       console.log(dataArr);
-      const classList = [classes.Circles, classes.Pollution];
+      const weatherBoxClassList = [
+        classes.MeasurementBox,
+        'animate__animated',
+        'animate__bounceInUp',
+      ];
+      const circlesClassList = [classes.Circles, classes.Pollution];
       box =
         dataArr.length !== 0 ? (
-          <div className={classes.MeasurementBox}>
+          <div className={weatherBoxClassList.join(' ')}>
             <h2 className={classes.Label}>{label}</h2>
-            <div className={classList.join(' ')}>
+            <div className={circlesClassList.join(' ')}>
               {dataArr.map((el) => {
                 return (
                   <MeasurementCircle
@@ -40,14 +45,19 @@ const MeasurementBox = ({ type, label, data }) => {
         ) : null;
       break;
     case 'weather':
-      for (let key in data) {
+      for (const key in data) {
         if (data[key].value !== null) {
           dataArr.push({ label: key, value: data[key].value });
         }
       }
+      const pollutionBoxClassList = [
+        classes.MeasurementBox,
+        'animate__animated',
+        'animate__bounceInUp',
+      ];
       box =
         dataArr.length !== 0 ? (
-          <div className={classes.MeasurementBox}>
+          <div className={pollutionBoxClassList.join(' ')}>
             <div className={classes.Label}>{label}</div>
             <div className={classes.Circles}>
               {dataArr.map((el) => {

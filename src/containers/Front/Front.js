@@ -62,7 +62,14 @@ class Front extends Component {
 
   render() {
     let form = (
-      <form onSubmit={this.searchHandler}>
+      <form
+        className={[
+          'animate__animated',
+          'animate__bounceInDown',
+          'animate__fast',
+        ].join(' ')}
+        onSubmit={this.searchHandler}
+      >
         <Input
           value={this.state.query}
           changed={this.inputChangedHandler}

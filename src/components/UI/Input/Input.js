@@ -27,7 +27,7 @@ const input = ({
   );
 
   return (
-    <div className={classes.Input}>
+    <div className={[classes.Input]}>
       <label>
         <span className={classes.Label}>{label}</span>
         <br />

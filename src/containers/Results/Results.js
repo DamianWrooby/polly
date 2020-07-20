@@ -200,7 +200,6 @@ class Results extends Component {
     } = this.state;
     const { loading } = this.state;
     const { error } = this.state;
-    console.log(this.props);
 
     let results = (
       <div className={classes.Content}>

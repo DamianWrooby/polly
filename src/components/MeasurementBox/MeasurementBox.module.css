@@ -1,5 +1,6 @@
 .MeasurementBox {
   height: auto;
+  min-height: 110px;
   box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, 0.288);
   border-radius: 2rem;
   margin: 1rem 1rem 0 0;
