@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Button.module.css';
 
-const Button = ({ icon, disabled }) => {
+const Button = ({ type, icon, disabled, clicked }) => {
   return (
-    <button disabled={disabled}>
+    <button type={type} disabled={disabled} onClick={clicked}>
       <div className={classes.Wrapper}>
         <div className={classes.Box}>
           <i className={icon} aria-hidden="true"></i>

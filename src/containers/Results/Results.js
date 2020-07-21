@@ -7,6 +7,7 @@ import Spinner from '../../components/UI/Loader/Loader';
 import MeasurementInfo from '../../components/MeasurementInfo/MeasurementInfo';
 import MeasurementBox from '../../components/MeasurementBox/MeasurementBox';
 import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';
+import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
 class Results extends Component {
   constructor(props) {
@@ -205,7 +206,13 @@ class Results extends Component {
       <div className={classes.Content}>
         <MeasurementInfo location={info} time={time} />
         <AirQualityBox index={index} />
-        <div className={classes.Measurements}>
+        <div
+          className={[
+            classes.Measurements,
+            'animate__animated',
+            'animate__bounceInUp',
+          ].join(' ')}
+        >
           <MeasurementBox type="pollution" label="Dust" data={dust} />
           <MeasurementBox type="pollution" label="Gases" data={gases} />
           <MeasurementBox type="weather" label="Weather" data={weather} />
@@ -217,12 +224,16 @@ class Results extends Component {
       results = <Spinner />;
     } else if (error) {
       results = (
-        <>
-          <p>Cannot find this location. Try another one.</p>
-          <button type="button" onClick={this.goBackHandler}>
-            Go back
-          </button>
-        </>
+        <ErrorMessage
+          textElement={
+            <p>
+              Cannot find this location.
+              <br />
+              Try another one.
+            </p>
+          }
+          action={this.goBackHandler}
+        />
       );
     }
 

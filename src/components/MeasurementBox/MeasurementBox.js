@@ -50,14 +50,9 @@ const MeasurementBox = ({ type, label, data }) => {
           dataArr.push({ label: key, value: data[key].value });
         }
       }
-      const pollutionBoxClassList = [
-        classes.MeasurementBox,
-        'animate__animated',
-        'animate__bounceInUp',
-      ];
       box =
         dataArr.length !== 0 ? (
-          <div className={pollutionBoxClassList.join(' ')}>
+          <div className={classes.MeasurementBox}>
             <div className={classes.Label}>{label}</div>
             <div className={classes.Circles}>
               {dataArr.map((el) => {
