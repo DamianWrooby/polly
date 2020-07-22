@@ -44,6 +44,7 @@ const AirQualityBox = ({ index }) => {
     case 'UNKNOWN':
       adviceText =
         'No sensors in this area. Pollution info is not available. Try searching for a different location.';
+      boxClasses.push(classes.GradientLow);
       break;
     default:
       adviceText = '';

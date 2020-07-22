@@ -90,7 +90,7 @@ class Front extends Component {
     if (this.state.loading) {
       form = <Loader />;
     } else if (this.state.error) {
-      form = <p>Ups. Something went wrong.</p>;
+      form = null;
     }
     return <div className={classes.Front}>{form}</div>;
   }

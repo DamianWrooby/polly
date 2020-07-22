@@ -13,7 +13,7 @@ const ErrorMessage = ({ textElement, action }) => {
 };
 
 ErrorMessage.propTypes = {
-  text: PropTypes.element.isRequired,
+  textElement: PropTypes.element.isRequired,
 };
 
 export default ErrorMessage;

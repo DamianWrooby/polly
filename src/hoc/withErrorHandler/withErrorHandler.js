@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
@@ -27,7 +28,16 @@ const withErrorHandler = (WrappedComponent, axios) => {
 
     render() {
       let renderSection = this.state.error ? (
-        <p>{this.state.error.message}</p>
+        <>
+          <ErrorMessage
+            textElement={
+              <p>
+                {this.state.error.message}. <br />
+                Try to search another loaction.
+              </p>
+            }
+          />
+        </>
       ) : null;
       return (
         <>
