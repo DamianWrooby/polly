@@ -26,6 +26,11 @@ const withErrorHandler = (WrappedComponent, axios) => {
       axios.interceptors.response.eject(this.resInterceptor);
     }
 
+    goBackHandler = (event) => {
+      event.preventDefault();
+      window.location.reload(false);
+    };
+
     render() {
       let renderSection = this.state.error ? (
         <>
@@ -36,6 +41,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
                 Try to search another loaction.
               </p>
             }
+            action={this.goBackHandler}
           />
         </>
       ) : null;
