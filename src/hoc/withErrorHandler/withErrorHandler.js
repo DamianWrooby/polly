@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
@@ -39,15 +40,13 @@ const withErrorHandler = (WrappedComponent, axios) => {
 
     render() {
       const { error: err } = this.state;
-      const {
-        error: { message },
-      } = this.state;
+
       const renderSection = err ? (
         <>
           <ErrorMessage
             textElement={
               <p>
-                {message}
+                {this.state.error.message}
                 <br />
                 Try to search another loaction.
               </p>
