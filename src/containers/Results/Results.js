@@ -149,14 +149,12 @@ class Results extends Component {
               });
             });
           });
-          console.log(updatedMeasurementsArr);
 
           updatedMeasurements = {
             dust: updatedDust,
             gases: updatedGases,
             weather: updatedWeather,
           };
-          console.log(updatedMeasurements);
 
           this.setState(
             {

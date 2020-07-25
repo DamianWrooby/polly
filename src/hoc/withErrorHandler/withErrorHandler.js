@@ -1,11 +1,16 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
-    state = {
-      error: null,
-    };
+    constructor(props) {
+      super(props);
+      this.state = {
+        error: null,
+      };
+    }
+
     componentDidMount() {
       this.reqInterceptor = axios.interceptors.request.use((req) => {
         this.setState({ error: null });
@@ -14,8 +19,9 @@ const withErrorHandler = (WrappedComponent, axios) => {
       this.resInterceptor = axios.interceptors.response.use(
         (res) => res,
         (error) => {
-          this.setState({ error: error }, () => {
-            console.log(this.state.error);
+          this.setState({ error }, () => {
+            const { error: err } = this.state;
+            console.log(err);
           });
         }
       );
@@ -32,12 +38,17 @@ const withErrorHandler = (WrappedComponent, axios) => {
     };
 
     render() {
-      let renderSection = this.state.error ? (
+      const { error: err } = this.state;
+      const {
+        error: { message },
+      } = this.state;
+      const renderSection = err ? (
         <>
           <ErrorMessage
             textElement={
               <p>
-                {this.state.error.message}. <br />
+                {message}
+                <br />
                 Try to search another loaction.
               </p>
             }

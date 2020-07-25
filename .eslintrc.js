@@ -16,6 +16,10 @@ module.exports = {
     'prettier/prettier': 'error',
     'no-console': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-wrap-multilines': [
+      'error',
+      { declaration: false, assignment: false },
+    ],
   },
   parser: 'babel-eslint',
 };
