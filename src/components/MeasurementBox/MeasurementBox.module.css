@@ -3,7 +3,7 @@
   min-height: 110px;
   box-shadow: -3px -3px 5px #ffffffab, 7px 6px 20px rgba(94, 104, 121, 0.288);
   border-radius: 2rem;
-  margin: 1rem 1rem 0 0;
+  margin: 1rem 0 0 0;
   padding: 1rem;
   background: linear-gradient(
     138deg,
@@ -25,6 +25,22 @@
   text-shadow: 1px 1px 2.2px #a9a7a7, -0.7px -0.7px 1px #fff;
 }
 
+.Tip {
+  position: absolute;
+  top: 1.2rem;
+  left: 6rem;
+  display: block;
+}
+
 .Pollution {
   margin-top: -1.5rem;
+}
+
+@media only screen and (min-width: 576px) {
+  .MeasurementBox {
+    margin: 1rem 1rem 0 0;
+  }
+  .Tip {
+    display: none;
+  }
 }

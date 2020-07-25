@@ -4,9 +4,10 @@ import WeatherCircle from '../WeatherCircle/WeatherCircle';
 
 import classes from './MeasurementBox.module.css';
 
-const MeasurementBox = ({ type, label, data }) => {
+const MeasurementBox = ({ type, label, data, tip }) => {
   const dataArr = [];
   let box;
+
   switch (type) {
     case 'pollution':
       for (const key in data) {
@@ -18,17 +19,18 @@ const MeasurementBox = ({ type, label, data }) => {
           });
         }
       }
-      console.log(dataArr);
       const weatherBoxClassList = [
         classes.MeasurementBox,
         'animate__animated',
         'animate__bounceInUp',
       ];
       const circlesClassList = [classes.Circles, classes.Pollution];
+
       box =
         dataArr.length !== 0 ? (
           <div className={weatherBoxClassList.join(' ')}>
             <h2 className={classes.Label}>{label}</h2>
+            <p className={classes.Tip}>{tip}</p>
             <div className={circlesClassList.join(' ')}>
               {dataArr.map((el) => {
                 return (

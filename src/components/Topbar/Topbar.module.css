@@ -1,22 +1,57 @@
 .Topbar {
-    height: 6%;
-    background: rgb(95,208,255);
-    background: linear-gradient(160deg, #6eb6ff 0%, #90f2ff 100%);
-    padding: 0.5rem 2.5rem 5.5rem 2.5rem;
-    display: flex;
-    justify-content: flex-end;
-    border-radius: 2em 2em 0 0;
-    overflow: hidden;
+  height: 6%;
+  background: rgb(95, 208, 255);
+  background: linear-gradient(160deg, #6eb6ff 0%, #90f2ff 100%);
+  padding: 0.5rem 2.5rem 5.5rem 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 2em 2em 0 0;
+  overflow: hidden;
 }
 .Watermark {
-    color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 12rem;
+  text-overflow: clip;
+  font-family: Helvetica;
+  font-weight: bold;
+  position: relative;
+  top: -5rem;
+  left: -12rem;
+  letter-spacing: -13px;
+  padding: 0 1rem;
+}
+@media only screen and (min-width: 320px) {
+  .Watermark {
+    font-size: 11rem;
+    top: -4rem;
+    left: 10rem;
+  }
+  .Topbar {
+    height: 1rem;
+    padding: 1.5rem 0.5rem 5.5rem 2.5rem;
+  }
+}
+@media only screen and (min-width: 576px) {
+  .Watermark {
     font-size: 12rem;
-    text-overflow: clip;
-    font-family: Helvetica;
-    font-weight: bold;
-    position: relative;
-    top: -12vh;
-    left: -12vh;
-    letter-spacing: -13px;
-    padding: 0 1rem;
+    top: -5rem;
+    left: 4rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .Watermark {
+    left: -5rem;
+    top: -6rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Watermark {
+    left: -7rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .Watermark {
+    left: -11rem;
+  }
 }

@@ -20,6 +20,7 @@ class Front extends Component {
       error: null,
     };
   }
+  componentWillUnmount() {}
 
   inputChangedHandler = (event) => {
     const updatedInputValue = event.target.value;
@@ -83,6 +84,7 @@ class Front extends Component {
           disabled={!this.state.valid}
           icon="fa fa-search"
           type="submit"
+          ariaLabel="search"
         />
       </form>
     );

@@ -7,10 +7,10 @@ const NavigationItems = () => {
   return (
     <ul className={classes.NavigationItems}>
       <NavigationItem link="/" exact>
-        <Button icon="fa fa-search" />
+        <Button icon="fa fa-search" type="button" ariaLabel="search" />
       </NavigationItem>
       <NavigationItem link="/about">
-        <Button icon="fa fa-info" />
+        <Button icon="fa fa-info" type="button" ariaLabel="about" />
       </NavigationItem>
     </ul>
   );

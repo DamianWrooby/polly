@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import classes from './Results.module.css';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import Spinner from '../../components/UI/Loader/Loader';
+import Loader from '../../components/UI/Loader/Loader';
 import MeasurementInfo from '../../components/MeasurementInfo/MeasurementInfo';
 import MeasurementBox from '../../components/MeasurementBox/MeasurementBox';
 import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';
@@ -211,15 +211,25 @@ class Results extends Component {
             'animate__bounceInUp',
           ].join(' ')}
         >
-          <MeasurementBox type="pollution" label="Dust" data={dust} />
-          <MeasurementBox type="pollution" label="Gases" data={gases} />
+          <MeasurementBox
+            type="pollution"
+            label="Dust"
+            data={dust}
+            tip={'Tap for more information'}
+          />
+          <MeasurementBox
+            type="pollution"
+            label="Gases"
+            data={gases}
+            tip={'Tap for more information'}
+          />
           <MeasurementBox type="weather" label="Weather" data={weather} />
         </div>
       </div>
     );
 
     if (loading) {
-      results = <Spinner />;
+      results = <Loader />;
     } else if (error) {
       results = (
         <ErrorMessage

@@ -3,7 +3,7 @@
 }
 .Input input {
   outline: none;
-  width: 97%;
+  width: 87%;
   height: 2.3rem;
   padding-left: 0.5rem;
   border-radius: 0.5rem;
@@ -25,11 +25,11 @@ select {
   outline: none;
 }
 .Label {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 .Sublabel {
-  font-size: 1.15rem;
+  font-size: 0.89rem;
   color: rgb(182, 206, 218);
 }
 .Invalid {
@@ -49,4 +49,16 @@ select {
   transition: all 0.2s ease-in-out;
   opacity: 1;
   height: 100%;
+}
+
+@media only screen and (min-width: 576px) {
+  .Label {
+    font-size: 1.8rem;
+  }
+  .Sublabel {
+    font-size: 1.15rem;
+  }
+  .Input input {
+    width: 97%;
+  }
 }
