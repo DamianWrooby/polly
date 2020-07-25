@@ -74,7 +74,7 @@ class Front extends Component {
           value={this.state.query}
           changed={this.inputChangedHandler}
           blured={this.inputChangedHandler}
-          label="Type location "
+          label="Type your location "
           sublabel="e.g. Mariacka, Gdańsk, Poland"
           invalid={!this.state.valid}
           validationFeedback="This field cannot be empty"

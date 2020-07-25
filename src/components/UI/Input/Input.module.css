@@ -25,9 +25,8 @@ select {
   outline: none;
 }
 .Label {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  text-shadow: 2px 2px 4px #b7b7b7, -2px -2px 3px #fff;
 }
 .Sublabel {
   font-size: 1.15rem;
