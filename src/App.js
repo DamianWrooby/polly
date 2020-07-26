@@ -9,7 +9,7 @@ import About from './components/About/About';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/polly">
       <Layout>
         <Switch>
           <Route path="/" exact component={Front} />
