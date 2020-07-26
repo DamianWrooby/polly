@@ -105,14 +105,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
-/* html {
+html {
   background: url(./assets/img/clouds-bg-c.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
-} */
+}
 .chartjs-render-monitor {
   /* box-shadow: -3px -3px 3px #ffffff73, 3px 3px 7px rgba(0, 86, 245, 0.288); */
   border-radius: 50%;

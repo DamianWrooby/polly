@@ -8,6 +8,7 @@
     rgba(224, 252, 255, 1) 66%
   );
 }
+/* 
 .Wrapper::after {
   height: 53rem;
   content: '';
@@ -19,7 +20,7 @@
   right: 0;
   position: absolute;
   z-index: 1;
-}
+} */
 .Main {
   background-color: rgb(246, 251, 253);
   position: absolute;

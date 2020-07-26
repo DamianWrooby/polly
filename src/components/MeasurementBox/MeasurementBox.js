@@ -19,16 +19,19 @@ const MeasurementBox = ({ type, label, data, tip }) => {
           });
         }
       }
-      const weatherBoxClassList = [
+      const pollutionBoxClassList = [
         classes.MeasurementBox,
         'animate__animated',
         'animate__bounceInUp',
       ];
       const circlesClassList = [classes.Circles, classes.Pollution];
+      if (dataArr.length > 3) {
+        circlesClassList.push(classes.Wrap);
+      }
 
       box =
         dataArr.length !== 0 ? (
-          <div className={weatherBoxClassList.join(' ')}>
+          <div className={pollutionBoxClassList.join(' ')}>
             <h2 className={classes.Label}>{label}</h2>
             <p className={classes.Tip}>{tip}</p>
             <div className={circlesClassList.join(' ')}>

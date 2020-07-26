@@ -30,7 +30,9 @@
   position: absolute;
   z-index: 1;
 }
-.MeasurementCircle:nth-child(3) .Tooltip {
+.MeasurementCircle:last-child .Tooltip,
+.MeasurementCircle:nth-child(3) .Tooltip,
+.MeasurementCircle:nth-child(4) .Tooltip {
   margin-left: -8rem;
 }
 .MeasurementCircle:hover .Tooltip::before {
@@ -71,10 +73,14 @@
   position: absolute;
   transition: width 0.2s;
 }
-.MeasurementCircle:nth-child(3) .Tooltip::before {
+.MeasurementCircle:last-child .Tooltip::before,
+.MeasurementCircle:nth-child(3) .Tooltip::before,
+.MeasurementCircle:nth-child(4) .Tooltip::before {
   left: 123px;
 }
-.MeasurementCircle:nth-child(3) .Tooltip::after {
+.MeasurementCircle:last-child .Tooltip::after,
+.MeasurementCircle:nth-child(3) .Tooltip::after,
+.MeasurementCircle:nth-child(4) .Tooltip::after {
   left: 147px;
   -webkit-transform: rotate(-300deg);
 }

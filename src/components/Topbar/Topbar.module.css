@@ -1,7 +1,6 @@
 .Topbar {
   height: 1rem;
   padding: 1.5rem 0.5rem 5.5rem 2.5rem;
-
   background: rgb(95, 208, 255);
   background: linear-gradient(160deg, #6eb6ff 0%, #90f2ff 100%);
   display: flex;
@@ -54,5 +53,13 @@
 @media only screen and (min-width: 1200px) {
   .Watermark {
     left: -11rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .Watermark {
+    left: -28rem;
+  }
+  .Topbar {
+    height: 2rem;
   }
 }
