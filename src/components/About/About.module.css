@@ -1,0 +1,14 @@
+.About {
+  padding: 2rem;
+}
+.About h1 {
+  font-size: 4rem;
+}
+.About h2 {
+  font-size: 1.5rem;
+}
+.About p {
+  margin: 1rem 0 0 0;
+  font-size: 1.3rem;
+  color: rgb(182, 206, 218);
+}
