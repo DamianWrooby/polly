@@ -1,0 +1,33 @@
+.Wrapper {
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.Heading {
+  font-size: 5rem;
+  font-size: bold;
+}
+.Subheading {
+  font-size: 1rem;
+  margin-top: -1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .Wrapper {
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .Heading {
+    font-size: 9rem;
+    font-size: bold;
+  }
+  .Subheading {
+    font-size: 2rem;
+    margin-top: -2rem;
+  }
+}
