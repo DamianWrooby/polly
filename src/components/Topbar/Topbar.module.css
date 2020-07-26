@@ -1,8 +1,9 @@
 .Topbar {
-  height: 6%;
+  height: 1rem;
+  padding: 1.5rem 0.5rem 5.5rem 2.5rem;
+
   background: rgb(95, 208, 255);
   background: linear-gradient(160deg, #6eb6ff 0%, #90f2ff 100%);
-  padding: 0.5rem 2.5rem 5.5rem 2.5rem;
   display: flex;
   justify-content: flex-end;
   border-radius: 2em 2em 0 0;
@@ -10,13 +11,13 @@
 }
 .Watermark {
   color: rgba(255, 255, 255, 0.1);
-  font-size: 12rem;
+  font-size: 11rem;
   text-overflow: clip;
   font-family: Helvetica;
   font-weight: bold;
   position: relative;
-  top: -5rem;
-  left: -12rem;
+  top: -4rem;
+  left: 10rem;
   letter-spacing: -13px;
   padding: 0 1rem;
 }

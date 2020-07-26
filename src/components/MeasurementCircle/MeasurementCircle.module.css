@@ -30,7 +30,9 @@
   position: absolute;
   z-index: 1;
 }
-
+.MeasurementCircle:nth-child(3) .Tooltip {
+  margin-left: -8rem;
+}
 .MeasurementCircle:hover .Tooltip::before {
   width: 25px;
   top: 100%;
@@ -69,6 +71,13 @@
   position: absolute;
   transition: width 0.2s;
 }
+.MeasurementCircle:nth-child(3) .Tooltip::before {
+  left: 123px;
+}
+.MeasurementCircle:nth-child(3) .Tooltip::after {
+  left: 147px;
+  -webkit-transform: rotate(-300deg);
+}
 
 .MeasurementCircle:hover .Tooltip {
   opacity: 1;
@@ -77,4 +86,17 @@
 }
 canvas.chartjs-render-monitor {
   border: 1px solid red;
+}
+
+@media only screen and (min-width: 576px) {
+  .MeasurementCircle:nth-child(3) .Tooltip {
+    margin-left: 3.5rem;
+  }
+  .MeasurementCircle:nth-child(3) .Tooltip::before {
+    left: -10px;
+  }
+  .MeasurementCircle:nth-child(3) .Tooltip::after {
+    left: -9px;
+    -webkit-transform: rotate(-240deg);
+  }
 }
