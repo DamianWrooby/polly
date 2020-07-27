@@ -6,7 +6,7 @@ import classes from './NavigationItems.module.css';
 const NavigationItems = () => {
   return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/polly" exact>
         <Button icon="fa fa-search" type="button" ariaLabel="search" />
       </NavigationItem>
       <NavigationItem link="/about">
