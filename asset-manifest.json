@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/polly/static/css/main.8614e874.chunk.css",
+    "main.css": "/polly/static/css/main.6189cdd5.chunk.css",
     "main.js": "/polly/static/js/main.24cb63d1.chunk.js",
     "main.js.map": "/polly/static/js/main.24cb63d1.chunk.js.map",
     "runtime-main.js": "/polly/static/js/runtime-main.97113477.js",
@@ -8,16 +8,16 @@
     "static/js/2.4b8bd41b.chunk.js": "/polly/static/js/2.4b8bd41b.chunk.js",
     "static/js/2.4b8bd41b.chunk.js.map": "/polly/static/js/2.4b8bd41b.chunk.js.map",
     "index.html": "/polly/index.html",
-    "precache-manifest.e6d7243e74e9a55c342caecb838bb8b5.js": "/polly/precache-manifest.e6d7243e74e9a55c342caecb838bb8b5.js",
+    "precache-manifest.3858052f206109796ea1aab17fe98980.js": "/polly/precache-manifest.3858052f206109796ea1aab17fe98980.js",
     "service-worker.js": "/polly/service-worker.js",
-    "static/css/main.8614e874.chunk.css.map": "/polly/static/css/main.8614e874.chunk.css.map",
+    "static/css/main.6189cdd5.chunk.css.map": "/polly/static/css/main.6189cdd5.chunk.css.map",
     "static/js/2.4b8bd41b.chunk.js.LICENSE.txt": "/polly/static/js/2.4b8bd41b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/polly/static/media/clouds-bg-c.96a41a11.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.97113477.js",
     "static/js/2.4b8bd41b.chunk.js",
-    "static/css/main.8614e874.chunk.css",
+    "static/css/main.6189cdd5.chunk.css",
     "static/js/main.24cb63d1.chunk.js"
   ]
 }
