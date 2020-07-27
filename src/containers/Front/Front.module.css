@@ -36,6 +36,6 @@ button[disabled] {
     margin-left: -150px;
   }
   .Front button {
-    margin: 0 0.5rem;
+    margin: 0 -0.5rem;
   }
 }
