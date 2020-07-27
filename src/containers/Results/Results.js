@@ -49,7 +49,7 @@ class Results extends Component {
     const geocodingKey = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
     const locationInfoReq = axios.get(
-      `http://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.coordinates.lat},${updatedLocation.coordinates.lng}`
+      `https://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.coordinates.lat},${updatedLocation.coordinates.lng}`
     );
     const pollutionInfoReq = axios.get(
       `https://airapi.airly.eu/v2/measurements/nearest?lat=${updatedLocation.coordinates.lat}&lng=${updatedLocation.coordinates.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`
