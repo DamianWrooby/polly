@@ -62,7 +62,7 @@ nav {
 @media only screen and (min-width: 576px) {
   .Main {
     width: 85vw;
-    height: 85vh;
+    /* height: 85vh; */
     left: 8%;
     top: 5%;
     margin: 0;
@@ -74,7 +74,7 @@ nav {
 @media only screen and (min-width: 960px) {
   .Main {
     width: 70vw;
-    height: 80vh;
+    /* height: 80vh; */
     top: 5%;
     left: 15%;
   }

@@ -6,9 +6,52 @@
 }
 .About h2 {
   font-size: 1.5rem;
+  font-weight: 200;
 }
 .About p {
   margin: 1rem 0 0 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: rgb(182, 206, 218);
+}
+.Credits {
+  position: absolute;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: 1rem;
+}
+.Credits p {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 320px) {
+  .Credits {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .Credits {
+    top: 62vh;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .Credits {
+    top: 62vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .About p {
+    font-size: 1.3rem;
+  }
+  .Credits {
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    margin-left: -80px;
+  }
+  .Credits p {
+    font-size: 1rem;
+  }
 }
