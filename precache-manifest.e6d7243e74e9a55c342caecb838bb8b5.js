@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "10c1b7c37b6063e372aa325e78c8d46d",
+    "revision": "886c98bdec5b1956db432f963d5f44d4",
     "url": "/polly/index.html"
   },
   {
-    "revision": "199d2e0729578d224784",
-    "url": "/polly/static/css/main.ee0c9ee6.chunk.css"
+    "revision": "18ac63d7aaed95e806a6",
+    "url": "/polly/static/css/main.8614e874.chunk.css"
   },
   {
-    "revision": "8b2e736ee07ab9cd1b63",
-    "url": "/polly/static/js/2.0baf7412.chunk.js"
+    "revision": "475293976f876c9a8ec2",
+    "url": "/polly/static/js/2.4b8bd41b.chunk.js"
   },
   {
     "revision": "23ec6c7f0411a6141095a6c739b32980",
-    "url": "/polly/static/js/2.0baf7412.chunk.js.LICENSE.txt"
+    "url": "/polly/static/js/2.4b8bd41b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "199d2e0729578d224784",
-    "url": "/polly/static/js/main.285ce1bc.chunk.js"
+    "revision": "18ac63d7aaed95e806a6",
+    "url": "/polly/static/js/main.24cb63d1.chunk.js"
   },
   {
     "revision": "093d9458356abfa25912",
