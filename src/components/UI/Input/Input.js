@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './Input.module.css';
 
-const input = ({
+const Input = ({
   value,
   changed,
   blured,
@@ -9,6 +10,7 @@ const input = ({
   sublabel,
   invalid,
   validationFeedback,
+  fieldId,
 }) => {
   let inputElement = null;
   const inputClasses = [];
@@ -28,7 +30,7 @@ const input = ({
 
   return (
     <div className={[classes.Input]}>
-      <label>
+      <label htmlFor={fieldId}>
         <span className={classes.Label}>{label}</span>
         <br />
         <span className={classes.Sublabel}>{sublabel}</span>
@@ -38,5 +40,22 @@ const input = ({
     </div>
   );
 };
+Input.defaultProps = {
+  label: '',
+  sublabel: '',
+  invalid: false,
+  validationFeedback: '',
+};
 
-export default input;
+Input.propTypes = {
+  blured: PropTypes.func.isRequired,
+  changed: PropTypes.func.isRequired,
+  invalid: PropTypes.bool,
+  label: PropTypes.string,
+  sublabel: PropTypes.string,
+  validationFeedback: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  fieldId: PropTypes.string.isRequired,
+};
+
+export default Input;

@@ -79,6 +79,7 @@ class Front extends Component {
           sublabel="e.g. Mariacka, Gdańsk, Poland"
           invalid={!this.state.valid}
           validationFeedback="This field cannot be empty"
+          fieldId="search"
         />
         <Button
           disabled={!this.state.valid}
