@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import MeasurementCircle from '../MeasurementCircle/MeasurementCircle';
 import WeatherCircle from '../WeatherCircle/WeatherCircle';
@@ -78,6 +79,16 @@ const MeasurementBox = ({ type, label, data, tip }) => {
   }
 
   return <>{box}</>;
+};
+MeasurementCircle.defaultProps = {
+  data: null,
+  tip: '',
+};
+MeasurementBox.propTypes = {
+  data: PropTypes.shape({}),
+  label: PropTypes.string.isRequired,
+  tip: PropTypes.string,
+  type: PropTypes.string.isRequired,
 };
 
 export default MeasurementBox;

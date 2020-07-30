@@ -2,28 +2,42 @@ import React from 'react';
 import classes from './WeatherCircle.module.css';
 
 const WeatherCircle = ({ label, value }) => {
-  let symbol;
+  let unit;
   switch (label) {
     case 'TEMPERATURE':
-      symbol = '°C';
+      unit = '°C';
       break;
     case 'HUMIDITY':
-      symbol = '%';
+      unit = '%';
       break;
     case 'PRESSURE':
-      symbol = 'hPa';
+      unit = 'hPa';
       break;
     case 'WIND':
-      symbol = 'km/h';
+      unit = 'km/h';
       break;
     default:
-      symbol = '';
+      unit = '';
   }
-  const valueString = `${value} ${symbol}`;
+  let icon;
+  switch (label) {
+    case 'TEMPERATURE':
+      icon = 'fa fa-thermometer-half';
+      break;
+    case 'HUMIDITY':
+      icon = 'fa fa-tint';
+      break;
+    case 'PRESSURE':
+      icon = 'fa fa-arrow-down';
+      break;
+    default:
+      icon = '';
+  }
+  const valueString = `${value}${unit}`;
 
   return (
     <div className={classes.WeatherCircle}>
-      <h2 className={classes.Label}>{label}</h2>
+      <i className={icon} aria-hidden="true" />
       <p>{valueString}</p>
     </div>
   );
