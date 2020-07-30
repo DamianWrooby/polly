@@ -20,7 +20,6 @@ class Front extends Component {
       error: null,
     };
   }
-  componentWillUnmount() {}
 
   inputChangedHandler = (event) => {
     const updatedInputValue = event.target.value;

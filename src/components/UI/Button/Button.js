@@ -23,11 +23,12 @@ const Button = ({ type, icon, disabled, clicked, ariaLabel }) => {
 Button.defaultProps = {
   disabled: false,
   type: 'button',
+  clicked: null,
 };
 
 Button.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
-  clicked: PropTypes.func.isRequired,
+  clicked: PropTypes.func,
   disabled: PropTypes.bool,
   icon: PropTypes.string.isRequired,
   type: PropTypes.string,
