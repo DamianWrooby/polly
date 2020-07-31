@@ -10,8 +10,8 @@ const MeasurementBox = ({ type, label, data, tip }) => {
   let box;
 
   switch (type) {
-    case 'pollution':
-      for (const key in data) {
+    case 'pollution': {
+      Object.keys(data).forEach((key) => {
         if (data[key].value !== null) {
           dataArr.push({
             label: key,
@@ -19,7 +19,8 @@ const MeasurementBox = ({ type, label, data, tip }) => {
             maxValue: data[key].maxValue,
           });
         }
-      }
+      });
+
       const pollutionBoxClassList = [
         classes.MeasurementBox,
         'animate__animated',
@@ -50,12 +51,13 @@ const MeasurementBox = ({ type, label, data, tip }) => {
           </div>
         ) : null;
       break;
+    }
     case 'weather':
-      for (const key in data) {
+      Object.keys(data).forEach((key) => {
         if (data[key].value !== null) {
           dataArr.push({ label: key, value: data[key].value });
         }
-      }
+      });
       box =
         dataArr.length !== 0 ? (
           <div className={classes.MeasurementBox}>
