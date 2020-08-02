@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './WeatherCircle.module.css';
 
@@ -41,6 +42,11 @@ const WeatherCircle = ({ label, value }) => {
       <p>{valueString}</p>
     </div>
   );
+};
+
+WeatherCircle.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default WeatherCircle;

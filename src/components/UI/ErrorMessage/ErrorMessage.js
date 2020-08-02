@@ -1,6 +1,6 @@
 import React from 'react';
-import classes from './ErrorMessage.module.css';
 import PropTypes from 'prop-types';
+import classes from './ErrorMessage.module.css';
 import Button from '../Button/Button';
 
 const ErrorMessage = ({ textElement, action }) => {
@@ -20,6 +20,7 @@ const ErrorMessage = ({ textElement, action }) => {
 
 ErrorMessage.propTypes = {
   textElement: PropTypes.element.isRequired,
+  action: PropTypes.func.isRequired,
 };
 
 export default ErrorMessage;

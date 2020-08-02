@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './MeasurementInfo.module.css';
 
@@ -39,6 +41,18 @@ const MeasurementInfo = ({ location, time }) => {
       </p>
     </div>
   );
+};
+
+MeasurementInfo.propTypes = {
+  location: PropTypes.shape({
+    adminArea1: PropTypes.string,
+    adminArea5: PropTypes.string,
+    street: PropTypes.string,
+  }).isRequired,
+  time: PropTypes.shape({
+    from: PropTypes.string,
+    till: PropTypes.string,
+  }).isRequired,
 };
 
 export default MeasurementInfo;

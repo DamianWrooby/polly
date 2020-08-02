@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Input from '../../components/UI/Input/Input';
 import Loader from '../../components/UI/Loader/Loader';
@@ -31,36 +32,42 @@ class Front extends Component {
 
   searchHandler = (event) => {
     event.preventDefault();
-    if (!this.state.query) {
+    const { history } = this.props;
+    const { query, location } = this.state;
+    if (!query) {
       this.setState({ valid: false });
     } else {
       this.setState({ loading: true });
       const key = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
       axios
-        .get(`address?key=${key}&location=${this.state.query}`)
+        .get(`address?key=${key}&location=${query}`)
         .then((response) => {
-          const location = response.data.results[0].locations[0].latLng;
-          this.setState({ loading: false, location: location });
+          const loc = response.data.results[0].locations[0].latLng;
+          this.setState({ loading: false, location: loc });
           const queryParams = [];
-          for (let i in this.state.location) {
-            queryParams.push(
-              encodeURIComponent(i) + '=' + this.state.location[i]
-            );
-          }
-          let queryString = queryParams.join('&');
-          this.props.history.push({
+          // for (let i in this.state.location) {
+          //   queryParams.push(
+          //     encodeURIComponent(i) + '=' + this.state.location[i]
+          //   );
+          // }
+          Object.keys(location).forEach((i) => {
+            queryParams.push(`${encodeURIComponent(i)}=${location[i]}`);
+          });
+          const queryString = queryParams.join('&');
+          history.push({
             pathname: '/location',
-            search: '?' + queryString,
+            search: `?${queryString}`,
           });
         })
-        .catch((err) => {
+        .catch(() => {
           this.setState({ loading: false, error: true });
         });
     }
   };
 
   render() {
+    const { query, valid, error, loading } = this.state;
     let form = (
       <form
         className={[
@@ -71,17 +78,17 @@ class Front extends Component {
         onSubmit={this.searchHandler}
       >
         <Input
-          value={this.state.query}
+          value={query}
           changed={this.inputChangedHandler}
           blured={this.inputChangedHandler}
           label="Type your location "
           sublabel="e.g. Mariacka, Gdańsk, Poland"
-          invalid={!this.state.valid}
+          invalid={!valid}
           validationFeedback="This field cannot be empty"
           fieldId="search"
         />
         <Button
-          disabled={!this.state.valid}
+          disabled={!valid}
           icon="fa fa-search"
           type="submit"
           ariaLabel="search"
@@ -89,13 +96,19 @@ class Front extends Component {
       </form>
     );
 
-    if (this.state.loading) {
+    if (loading) {
       form = <Loader />;
-    } else if (this.state.error) {
+    } else if (error) {
       form = null;
     }
     return <div className={classes.Front}>{form}</div>;
   }
 }
+
+Front.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default withErrorHandler(Front, axios);

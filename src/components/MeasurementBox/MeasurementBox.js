@@ -82,10 +82,11 @@ const MeasurementBox = ({ type, label, data, tip }) => {
 
   return <>{box}</>;
 };
-MeasurementCircle.defaultProps = {
+MeasurementBox.defaultProps = {
   data: null,
   tip: '',
 };
+
 MeasurementBox.propTypes = {
   data: PropTypes.shape({}),
   label: PropTypes.string.isRequired,

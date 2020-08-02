@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './MeasurementCircle.module.css';
 import DaughnutChart from '../Charts/DoughnutChart/DoughnutChart';
@@ -52,6 +53,12 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
       />
     </div>
   );
+};
+
+MeasurementCircle.propTypes = {
+  label: PropTypes.string.isRequired,
+  maxValue: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default MeasurementCircle;

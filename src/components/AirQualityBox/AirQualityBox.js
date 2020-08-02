@@ -65,7 +65,7 @@ const AirQualityBox = ({ index }) => {
 AirQualityBox.propTypes = {
   index: PropTypes.shape({
     level: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default AirQualityBox;

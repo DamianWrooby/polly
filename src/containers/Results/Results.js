@@ -215,13 +215,13 @@ class Results extends Component {
             type="pollution"
             label="Dust"
             data={dust}
-            tip={'Tap for more information'}
+            tip="Tap for more information"
           />
           <MeasurementBox
             type="pollution"
             label="Gases"
             data={gases}
-            tip={'Tap for more information'}
+            tip="Tap for more information"
           />
           <MeasurementBox type="weather" label="Weather" data={weather} />
         </div>
