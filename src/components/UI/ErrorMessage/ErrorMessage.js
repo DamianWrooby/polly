@@ -13,7 +13,12 @@ const ErrorMessage = ({ textElement, action }) => {
   return (
     <div className={classList.join(' ')}>
       {textElement}
-      <Button clicked={action} icon="fa fa-step-backward" type="button" />
+      <Button
+        clicked={action}
+        icon="fa fa-step-backward"
+        type="button"
+        ariaLabel="Back to the search"
+      />
     </div>
   );
 };

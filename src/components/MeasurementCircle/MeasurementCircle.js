@@ -16,7 +16,6 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
   } else if (pollutionLevel > 100) {
     chartColorBackground = '#ff0000';
   }
-  console.log(pollutionLevel);
   const chartData = {
     datasets: [
       {
@@ -54,10 +53,12 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
     </div>
   );
 };
-
+MeasurementCircle.defaultProps = {
+  maxValue: null,
+};
 MeasurementCircle.propTypes = {
   label: PropTypes.string.isRequired,
-  maxValue: PropTypes.number.isRequired,
+  maxValue: PropTypes.number,
   value: PropTypes.number.isRequired,
 };
 

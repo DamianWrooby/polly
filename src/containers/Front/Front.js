@@ -13,10 +13,10 @@ class Front extends Component {
     this.state = {
       query: '',
       valid: true,
-      location: {
-        lat: null,
-        lng: null,
-      },
+      // location: {
+      //   lat: null,
+      //   lng: null,
+      // },
       loading: false,
       error: null,
     };
@@ -33,7 +33,7 @@ class Front extends Component {
   searchHandler = (event) => {
     event.preventDefault();
     const { history } = this.props;
-    const { query, location } = this.state;
+    const { query } = this.state;
     if (!query) {
       this.setState({ valid: false });
     } else {
@@ -44,15 +44,15 @@ class Front extends Component {
         .get(`address?key=${key}&location=${query}`)
         .then((response) => {
           const loc = response.data.results[0].locations[0].latLng;
-          this.setState({ loading: false, location: loc });
+          this.setState({ loading: false });
           const queryParams = [];
           // for (let i in this.state.location) {
           //   queryParams.push(
           //     encodeURIComponent(i) + '=' + this.state.location[i]
           //   );
           // }
-          Object.keys(location).forEach((i) => {
-            queryParams.push(`${encodeURIComponent(i)}=${location[i]}`);
+          Object.keys(loc).forEach((i) => {
+            queryParams.push(`${encodeURIComponent(i)}=${loc[i]}`);
           });
           const queryString = queryParams.join('&');
           history.push({

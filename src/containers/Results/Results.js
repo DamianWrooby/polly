@@ -61,7 +61,6 @@ class Results extends Component {
         axios.spread((...responses) => {
           const locationInfoRes = responses[0];
           const pollutionInfoRes = responses[1];
-          console.log(pollutionInfoRes.data);
 
           let updatedLocationInfo = { ...updatedLocation.info };
           // updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
@@ -156,18 +155,13 @@ class Results extends Component {
             weather: updatedWeather,
           };
 
-          this.setState(
-            {
-              loading: false,
-              location: updatedLocation,
-              time: updatedTime,
-              index: updatedIndex,
-              measurements: updatedMeasurements,
-            },
-            () => {
-              console.log(this.state);
-            }
-          );
+          this.setState({
+            loading: false,
+            location: updatedLocation,
+            time: updatedTime,
+            index: updatedIndex,
+            measurements: updatedMeasurements,
+          });
         })
       )
       .catch((errors) => {

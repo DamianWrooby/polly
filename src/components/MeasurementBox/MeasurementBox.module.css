@@ -12,6 +12,9 @@
   );
   flex-grow: 2;
 }
+.MeasurementBox:first-child {
+  z-index: 1;
+}
 
 .Circles {
   display: flex;

@@ -12,8 +12,10 @@ const About = () => {
   ];
   return (
     <div className={classList.join(' ')}>
-      <h1>Polly</h1>
-      <h2>Check air pollution in your area</h2>
+      <header>
+        <h1>Polly</h1>
+        <h2>Check air pollution in your area</h2>
+      </header>
       <p>
         Polly is a web application that allows users to check air quality in
         their area. Air pollution is now considered to be the world&apos;s
@@ -24,14 +26,16 @@ const About = () => {
         pollution is a big issue - we are one of the most polluted country in
         Europe because of energy managment based on fossil fuels.
       </p>
-      <div className={classes.Credits}>
-        <p>
-          Created by{' '}
-          <span>
-            <a href="https://twitter.com/DamianWrooby">Wrooby</a>
-          </span>
-        </p>
-      </div>
+      <footer>
+        <div className={classes.Credits}>
+          <p>
+            Created by{' '}
+            <span>
+              <a href="https://twitter.com/DamianWrooby">Wrooby</a>
+            </span>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

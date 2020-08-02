@@ -17,7 +17,7 @@ const layout = ({ children }) => {
             />
           </svg>
         </div>
-        <div className={classes.Content}>{children}</div>
+        <section className={classes.Content}>{children}</section>
       </main>
     </div>
   );
