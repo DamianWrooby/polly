@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Input from '../../components/UI/Input/Input';
 import Loader from '../../components/UI/Loader/Loader';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -7,44 +7,35 @@ import Button from '../../components/UI/Button/Button';
 import classes from './Front.module.css';
 import axios from '../../axios-geocode';
 
-class Front extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: '',
-      valid: true,
-      // location: {
-      //   lat: null,
-      //   lng: null,
-      // },
-      loading: false,
-      error: null,
-    };
-  }
+function Front(props) {
+  const [query, setQuery] = useState('');
+  const [valid, setValid] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  inputChangedHandler = (event) => {
+  const checkValidity = (value) => value.trim() !== '';
+
+  const inputChangedHandler = (event) => {
     const updatedInputValue = event.target.value;
-    const updatedValidation = this.checkValidity(updatedInputValue);
-    this.setState({ query: updatedInputValue, valid: updatedValidation });
+    const updatedValidation = checkValidity(updatedInputValue);
+    setQuery(updatedInputValue);
+    setValid(updatedValidation);
   };
 
-  checkValidity = (value) => value.trim() !== '';
-
-  searchHandler = (event) => {
+  const searchHandler = (event) => {
     event.preventDefault();
-    const { history } = this.props;
-    const { query } = this.state;
+    const { history } = props;
     if (!query) {
-      this.setState({ valid: false });
+      setValid(false);
     } else {
-      this.setState({ loading: true });
+      setLoading(true);
       const key = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
       axios
         .get(`address?key=${key}&location=${query}`)
         .then((response) => {
           const loc = response.data.results[0].locations[0].latLng;
-          this.setState({ loading: false });
+          setLoading(false);
           const queryParams = [];
           // for (let i in this.state.location) {
           //   queryParams.push(
@@ -61,48 +52,46 @@ class Front extends Component {
           });
         })
         .catch(() => {
-          this.setState({ loading: false, error: true });
+          setLoading(false);
+          setError(true);
         });
     }
   };
+  let form = (
+    <form
+      className={[
+        'animate__animated',
+        'animate__bounceInDown',
+        'animate__fast',
+      ].join(' ')}
+      onSubmit={searchHandler}
+    >
+      <Input
+        value={query}
+        changed={inputChangedHandler}
+        blured={inputChangedHandler}
+        label="Type your location "
+        sublabel="e.g. Mariacka, Gdańsk, Poland"
+        invalid={!valid}
+        validationFeedback="This field cannot be empty"
+        fieldId="search"
+      />
+      <Button
+        disabled={!valid}
+        icon="fa fa-search"
+        type="submit"
+        ariaLabel="search"
+      />
+    </form>
+  );
 
-  render() {
-    const { query, valid, error, loading } = this.state;
-    let form = (
-      <form
-        className={[
-          'animate__animated',
-          'animate__bounceInDown',
-          'animate__fast',
-        ].join(' ')}
-        onSubmit={this.searchHandler}
-      >
-        <Input
-          value={query}
-          changed={this.inputChangedHandler}
-          blured={this.inputChangedHandler}
-          label="Type your location "
-          sublabel="e.g. Mariacka, Gdańsk, Poland"
-          invalid={!valid}
-          validationFeedback="This field cannot be empty"
-          fieldId="search"
-        />
-        <Button
-          disabled={!valid}
-          icon="fa fa-search"
-          type="submit"
-          ariaLabel="search"
-        />
-      </form>
-    );
-
-    if (loading) {
-      form = <Loader />;
-    } else if (error) {
-      form = null;
-    }
-    return <div className={classes.Front}>{form}</div>;
+  if (loading) {
+    form = <Loader />;
+  } else if (error) {
+    form = null;
   }
+
+  return <div className={classes.Front}>{form}</div>;
 }
 
 Front.propTypes = {
