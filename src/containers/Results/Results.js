@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import classes from './Results.module.css';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -9,50 +9,44 @@ import MeasurementBox from '../../components/MeasurementBox/MeasurementBox';
 import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';
 import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
-class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      location: {
-        coordinates: {},
-        info: {},
-      },
-      time: {
-        from: '',
-        till: '',
-      },
-      index: {},
-      measurements: {},
-      loading: true,
-      error: false,
-    };
-  }
+function Results(props) {
+  const [coordinates, setCoordinates] = useState({});
+  const [info, setInfo] = useState({});
+  const [from, setFrom] = useState('');
+  const [till, setTill] = useState('');
+  const [index, setIndex] = useState({});
+  const [dust, setDust] = useState({});
+  const [gases, setGases] = useState({});
+  const [weather, setWeather] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  componentDidMount() {
+  useEffect(() => {
     // eslint-disable-next-line react/destructuring-assignment
-    const query = new URLSearchParams(this.props.location.search);
+    const query = new URLSearchParams(props.location.search);
     const updatedLocation = {
       coordinates: {},
       info: {},
     };
-    const updatedCoordinates = { ...updatedLocation.coordinates };
+    const updatedCoordinates = {};
     // eslint-disable-next-line no-restricted-syntax
     for (const param of query.entries()) {
       // updatedCoordinates[param[0]] = param[1];
       [, updatedCoordinates[param[0]]] = param;
     }
     updatedLocation.coordinates = updatedCoordinates;
-    this.setState({ location: updatedLocation });
+    console.log(updatedCoordinates);
+    setCoordinates(updatedCoordinates);
 
     const airlyKey = 'E5uVHwAJDcdy1YKj9x05zTgKtaxMKgAk';
     const airlyDistance = '1000';
     const geocodingKey = 'xyDRoBak7eftOCqBEbiRd30Qm0u9K2Nr';
 
     const locationInfoReq = axios.get(
-      `https://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedLocation.coordinates.lat},${updatedLocation.coordinates.lng}`
+      `https://www.mapquestapi.com/geocoding/v1/reverse?key=${geocodingKey}&location=${updatedCoordinates.lat},${updatedCoordinates.lng}`
     );
     const pollutionInfoReq = axios.get(
-      `https://airapi.airly.eu/v2/measurements/nearest?lat=${updatedLocation.coordinates.lat}&lng=${updatedLocation.coordinates.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`
+      `https://airapi.airly.eu/v2/measurements/nearest?lat=${updatedCoordinates.lat}&lng=${updatedCoordinates.lng}&maxDistanceKM=${airlyDistance}&apikey=${airlyKey}`
     );
 
     axios
@@ -62,13 +56,14 @@ class Results extends Component {
           const locationInfoRes = responses[0];
           const pollutionInfoRes = responses[1];
 
-          let updatedLocationInfo = { ...updatedLocation.info };
+          let updatedLocationInfo = {};
           // updatedLocationInfo = locationInfoRes.data.results[0].locations[0];
-          [updatedLocationInfo] = locationInfoRes.data.results[0].locations;
-          updatedLocation.info = updatedLocationInfo;
+          updatedLocationInfo = locationInfoRes.data.results[0].locations;
+          setInfo(updatedLocationInfo[0]);
 
           // let updatedIndex = { ...this.state.index };
           const updatedIndex = pollutionInfoRes.data.current.indexes[0];
+          setIndex(updatedIndex);
 
           const updatedTime = {
             from: '',
@@ -76,6 +71,9 @@ class Results extends Component {
           };
           updatedTime.from = pollutionInfoRes.data.current.fromDateTime;
           updatedTime.till = pollutionInfoRes.data.current.tillDateTime;
+
+          setFrom(updatedTime.from);
+          setTill(updatedTime.till);
 
           const valuesArray = pollutionInfoRes.data.current.values;
           const pollutionObject = {};
@@ -154,93 +152,73 @@ class Results extends Component {
             gases: updatedGases,
             weather: updatedWeather,
           };
-
-          this.setState({
-            loading: false,
-            location: updatedLocation,
-            time: updatedTime,
-            index: updatedIndex,
-            measurements: updatedMeasurements,
-          });
+          console.log(updatedDust);
+          console.log(updatedMeasurements);
+          setLoading(false);
+          setDust({ ...updatedMeasurements.dust });
+          setGases({ ...updatedMeasurements.gases });
+          setWeather({ ...updatedMeasurements.weather });
         })
       )
       .catch((errors) => {
-        this.setState({ loading: false, error: true });
+        setLoading(false);
+        setError(true);
         console.log(errors);
       });
-  }
+  }, []);
 
-  goBackHandler = (event) => {
+  const goBackHandler = (event) => {
     event.preventDefault();
     // eslint-disable-next-line react/destructuring-assignment
-    this.props.history.goBack();
+    props.history.goBack();
   };
 
-  render() {
-    const {
-      location: { info },
-    } = this.state;
-    const { time } = this.state;
-    const { index } = this.state;
-    const {
-      measurements: { dust },
-    } = this.state;
-    const {
-      measurements: { gases },
-    } = this.state;
-    const {
-      measurements: { weather },
-    } = this.state;
-    const { loading } = this.state;
-    const { error } = this.state;
-
-    let results = (
-      <div className={classes.Content}>
-        <MeasurementInfo location={info} time={time} />
-        <AirQualityBox index={index} />
-        <div
-          className={[
-            classes.Measurements,
-            'animate__animated',
-            'animate__bounceInUp',
-          ].join(' ')}
-        >
-          <MeasurementBox
-            type="pollution"
-            label="Dust"
-            data={dust}
-            tip="Tap for more information"
-          />
-          <MeasurementBox
-            type="pollution"
-            label="Gases"
-            data={gases}
-            tip="Tap for more information"
-          />
-          <MeasurementBox type="weather" label="Weather" data={weather} />
-        </div>
-      </div>
-    );
-
-    if (loading) {
-      results = <Loader />;
-    } else if (error) {
-      results = (
-        <ErrorMessage
-          textElement={
-            <p>
-              Cannot find this location.
-              <br />
-              Try another one.
-            </p>
-          }
-          action={this.goBackHandler}
+  let results = (
+    <div className={classes.Content}>
+      <MeasurementInfo location={info} till={till} from={from} />
+      <AirQualityBox index={index} />
+      <div
+        className={[
+          classes.Measurements,
+          'animate__animated',
+          'animate__bounceInUp',
+        ].join(' ')}
+      >
+        <MeasurementBox
+          type="pollution"
+          label="Dust"
+          data={dust}
+          tip="Tap for more information"
         />
-      );
-    }
+        <MeasurementBox
+          type="pollution"
+          label="Gases"
+          data={gases}
+          tip="Tap for more information"
+        />
+        <MeasurementBox type="weather" label="Weather" data={weather} />
+      </div>
+    </div>
+  );
 
-    return <div className={classes.Results}>{results}</div>;
+  if (loading) {
+    results = <Loader />;
+  } else if (error) {
+    results = (
+      <ErrorMessage
+        textElement={
+          <p>
+            Cannot find this location.
+            <br />
+            Try another one.
+          </p>
+        }
+        action={goBackHandler}
+      />
+    );
   }
+
+  return <div className={classes.Results}>{results}</div>;
 }
 
 Results.propTypes = {

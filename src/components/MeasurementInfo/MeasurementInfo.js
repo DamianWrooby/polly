@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classes from './MeasurementInfo.module.css';
 
-const MeasurementInfo = ({ location, time }) => {
+const MeasurementInfo = ({ location, from, till }) => {
   let locationText;
   if (location.street) {
     locationText = `${location.street}, ${location.adminArea5}, ${location.adminArea1}`;
@@ -11,8 +11,8 @@ const MeasurementInfo = ({ location, time }) => {
     locationText = `${location.adminArea5}, ${location.adminArea1}`;
   }
 
-  const fromDate = new Date(time.from);
-  const tillDate = new Date(time.till);
+  const fromDate = new Date(from);
+  const tillDate = new Date(till);
   const fromDateArr = fromDate.toLocaleString().split(':');
   fromDateArr.pop();
   const fromDateString = fromDateArr.join(':');
