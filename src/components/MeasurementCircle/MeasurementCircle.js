@@ -6,6 +6,7 @@ import Tooltip from '../Tooltip/Tooltip';
 
 const MeasurementCircle = ({ label, value, maxValue }) => {
   const pollutionLevel = maxValue ? (value / maxValue) * 100 : null;
+  console.log(pollutionLevel);
   let chartColor = '#6eb6ff';
   let chartColorBackground = '#90f2ff';
 

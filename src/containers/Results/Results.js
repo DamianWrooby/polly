@@ -10,7 +10,6 @@ import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';
 import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
 function Results(props) {
-  const [coordinates, setCoordinates] = useState({});
   const [info, setInfo] = useState({});
   const [from, setFrom] = useState('');
   const [till, setTill] = useState('');
@@ -21,22 +20,18 @@ function Results(props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const {
+    location: { search },
+  } = props;
   useEffect(() => {
     // eslint-disable-next-line react/destructuring-assignment
-    const query = new URLSearchParams(props.location.search);
-    const updatedLocation = {
-      coordinates: {},
-      info: {},
-    };
+    const query = new URLSearchParams(search);
     const updatedCoordinates = {};
     // eslint-disable-next-line no-restricted-syntax
     for (const param of query.entries()) {
       // updatedCoordinates[param[0]] = param[1];
       [, updatedCoordinates[param[0]]] = param;
     }
-    updatedLocation.coordinates = updatedCoordinates;
-    console.log(updatedCoordinates);
-    setCoordinates(updatedCoordinates);
 
     const airlyKey = 'E5uVHwAJDcdy1YKj9x05zTgKtaxMKgAk';
     const airlyDistance = '1000';
@@ -165,7 +160,7 @@ function Results(props) {
         setError(true);
         console.log(errors);
       });
-  }, []);
+  }, [search]);
 
   const goBackHandler = (event) => {
     event.preventDefault();

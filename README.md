@@ -4,11 +4,26 @@
 
 Polly is my first React project created from scratch. It allows users to check air quality in their area. Air pollution is now considered to be the world's largest environmental health threat, accounting for 7 million deaths around the world every year. Air pollution causes and exacerbates a number of diseases, ranging from asthma to cancer, pulmonary illnesses and heart disease. Especially in Poland, country were I come from, air pollution is a big issue - we are one of the most polluted country in Europe because of energy managment based on fossil fuels.
 
+## Technologies
+
+- React v16.13.1
+- React Router
+- React Hooks
+- Airly API
+- Mapquest API
+- Chart.js
+- PropTypes
+- axios
+- CSS modules
+- Animate.css
+- Prettier
+- ESLint
+- Husky & lint-staged
+- git
+- ClickUp App (project management)
+
 ## Upcoming improvements
 
-- Switch to React Hooks
-- Semantic improvements
-- PropType check for all components
 - Performance improvements
 
 ### Distant future

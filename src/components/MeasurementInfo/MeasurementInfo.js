@@ -49,10 +49,8 @@ MeasurementInfo.propTypes = {
     adminArea5: PropTypes.string,
     street: PropTypes.string,
   }).isRequired,
-  time: PropTypes.shape({
-    from: PropTypes.string,
-    till: PropTypes.string,
-  }).isRequired,
+  from: PropTypes.string.isRequired,
+  till: PropTypes.string.isRequired,
 };
 
 export default MeasurementInfo;
