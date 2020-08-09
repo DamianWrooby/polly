@@ -11,6 +11,8 @@ Polly is my first React project created from scratch. It allows users to check a
 - React Hooks
 - Airly API
 - Mapquest API
+- OpenLayers + ol-mapbox
+- Maptiler API
 - Chart.js
 - PropTypes
 - axios
@@ -25,10 +27,7 @@ Polly is my first React project created from scratch. It allows users to check a
 ## Upcoming improvements
 
 - Performance improvements
-
-### Distant future
-
-- Map for search locations
+- Tests
 
 ## Installing
 
