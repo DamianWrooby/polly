@@ -4,7 +4,7 @@ import 'ol/ol.css';
 import { Map, View } from 'ol';
 import { fromLonLat, toLonLat } from 'ol/proj';
 import olms from 'ol-mapbox-style';
-
+import Front from '../Front/Front';
 import classes from './FrontMap.module.css';
 
 const FrontMap = (props) => {
@@ -25,27 +25,33 @@ const FrontMap = (props) => {
         zoom: 6,
       }),
     });
+
+    olms(olMap, styleJson);
+
     olMap.on('click', (evt) => {
       console.info(evt.pixel);
-      console.info(olMap.getPixelFromCoordinate(evt.coordinate));
       // console.info(ol.proj.toLonLat(evt.coordinate));
       const coords = toLonLat(evt.coordinate);
-      const lat = coords[1];
-      const lon = coords[0];
 
+      const [lon, lat] = coords;
       const queryString = `lat=${lat}&lng=${lon}`;
-      history.push({
-        pathname: '/location',
-        search: `?${queryString}`,
-      });
+
+      window.setTimeout(() => {
+        history.push({
+          pathname: '/location',
+          search: `?${queryString}`,
+        });
+      }, 400);
     });
-    olms(olMap, styleJson);
   }, [history]);
 
   return (
-    <div id="map" className={classes.FrontMap} ref={mapRef}>
-      {' '}
-    </div>
+    <>
+      <Front />
+      <div id="map" className={classes.FrontMap} ref={mapRef}>
+        {' '}
+      </div>
+    </>
   );
 };
 

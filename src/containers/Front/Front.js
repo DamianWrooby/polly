@@ -69,9 +69,8 @@ function Front(props) {
       <Input
         value={query}
         changed={inputChangedHandler}
+        label="Click on map or type address:"
         blured={inputChangedHandler}
-        label="Type your location "
-        sublabel="e.g. Mariacka, Gdańsk, Poland"
         invalid={!valid}
         validationFeedback="This field cannot be empty"
         fieldId="search"
@@ -93,11 +92,14 @@ function Front(props) {
 
   return <div className={classes.Front}>{form}</div>;
 }
+Front.defaultProps = {
+  history: null,
+};
 
 Front.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
-  }).isRequired,
+  }),
 };
 
 export default withErrorHandler(Front, axios);

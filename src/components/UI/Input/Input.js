@@ -7,7 +7,6 @@ const Input = ({
   changed,
   blured,
   label,
-  sublabel,
   invalid,
   validationFeedback,
   fieldId,
@@ -32,8 +31,6 @@ const Input = ({
     <div className={[classes.Input]}>
       <label htmlFor={fieldId}>
         <span className={classes.Label}>{label}</span>
-        <br />
-        <span className={classes.Sublabel}>{sublabel}</span>
       </label>
       {inputElement}
       <p className={feedbackClasses.join(' ')}>{validationFeedback}</p>
@@ -42,7 +39,6 @@ const Input = ({
 };
 Input.defaultProps = {
   label: '',
-  sublabel: '',
   invalid: false,
   validationFeedback: '',
 };
@@ -52,7 +48,6 @@ Input.propTypes = {
   changed: PropTypes.func.isRequired,
   invalid: PropTypes.bool,
   label: PropTypes.string,
-  sublabel: PropTypes.string,
   validationFeedback: PropTypes.string,
   value: PropTypes.string.isRequired,
   fieldId: PropTypes.string.isRequired,

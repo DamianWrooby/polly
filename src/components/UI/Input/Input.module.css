@@ -1,6 +1,3 @@
-.Input {
-  display: inline-block;
-}
 .Input input {
   outline: none;
   width: 11.5rem;
@@ -25,13 +22,9 @@ select {
   outline: none;
 }
 .Label {
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 0.9rem;
 }
-.Sublabel {
-  font-size: 0.89rem;
-  color: rgb(182, 206, 218);
-}
+
 .Invalid {
   border: 1px solid red;
   background-color: salmon !important;
@@ -53,10 +46,7 @@ select {
 
 @media only screen and (min-width: 576px) {
   .Label {
-    font-size: 1.8rem;
-  }
-  .Sublabel {
-    font-size: 1.15rem;
+    font-size: 1.14rem;
   }
   .Input input {
     width: 15rem;

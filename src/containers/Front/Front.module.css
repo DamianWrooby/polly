@@ -1,15 +1,21 @@
 .Front {
-  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .Front form {
-  position: absolute;
+  display: flex;
   left: 50%;
-  top: 40%;
-  margin-left: -124px;
+  top: -5%;
+  position: relative;
+  margin-top: -1rem;
+  margin-left: -133px;
+  margin-bottom: 1rem;
 }
 .Front button {
-  margin: 0 -1.5rem;
+  margin: 1.1rem 0 0 -1.2rem;
 }
+
 button:disabled,
 button[disabled] {
   color: rgb(170, 170, 170);
@@ -19,23 +25,14 @@ button[disabled] {
 
 @media only screen and (min-width: 320px) {
   .Front form {
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    margin-left: -124px;
+    margin-top: 0;
   }
   .Front button {
-    margin: 0 -1.5rem;
+    margin: 1.1rem 0 0 -1.2rem;
   }
 }
 @media only screen and (min-width: 768px) {
-  .Front form {
-    position: absolute;
-    left: 50%;
-    top: 42%;
-    margin-left: -150px;
-  }
   .Front button {
-    margin: 0 -0.5rem;
+    margin: 1.1rem 0 0 -1.2rem;
   }
 }

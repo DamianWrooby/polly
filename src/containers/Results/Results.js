@@ -147,8 +147,7 @@ function Results(props) {
             gases: updatedGases,
             weather: updatedWeather,
           };
-          console.log(updatedDust);
-          console.log(updatedMeasurements);
+
           setLoading(false);
           setDust({ ...updatedMeasurements.dust });
           setGases({ ...updatedMeasurements.gases });

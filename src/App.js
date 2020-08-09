@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
-import Front from './containers/Front/Front';
 import Results from './containers/Results/Results';
 import FrontMap from './containers/FrontMap/FrontMap';
 import NotFound from './components/NotFound/NotFound';
@@ -13,8 +12,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route path="/map" exact component={FrontMap} />
-          <Route path="/polly" exact component={Front} />
+          <Route path="/polly" exact component={FrontMap} />
           <Route path="/location" component={Results} />
           <Route path="/about" component={About} />
           <Route component={NotFound} />

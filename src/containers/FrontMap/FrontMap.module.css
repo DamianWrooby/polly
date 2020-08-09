@@ -1,5 +1,12 @@
 .FrontMap {
   width: 100%;
-  height: 66vh;
+  height: 56vh;
   border-radius: 1.5rem;
+}
+.FrontMap:hover {
+  cursor: pointer;
+}
+.Heading {
+  font-size: 1.15rem;
+  display: inline-block;
 }
