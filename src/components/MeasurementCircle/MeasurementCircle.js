@@ -9,9 +9,9 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
   let chartColor = '#6eb6ff';
   let chartColorBackground = '#90f2ff';
 
-  if (pollutionLevel > 50) {
+  if (pollutionLevel > 30) {
     chartColor = '#ff6200';
-  } else if (pollutionLevel > 80) {
+  } else if (pollutionLevel > 60) {
     chartColor = '#ff4000';
   } else if (pollutionLevel > 100) {
     chartColorBackground = '#ff0000';
@@ -19,7 +19,7 @@ const MeasurementCircle = ({ label, value, maxValue }) => {
   const chartData = {
     datasets: [
       {
-        data: [value, maxValue],
+        data: [value, maxValue - value],
         backgroundColor: [chartColor, chartColorBackground],
         borderWidth: 0,
       },
