@@ -8,19 +8,6 @@
     rgba(224, 252, 255, 1) 66%
   );
 }
-/* 
-.Wrapper::after {
-  height: 53rem;
-  content: '';
-  background: url('../../assets/img/clouds-bg-c.jpg');
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: 1;
-} */
 .Main {
   background-color: rgb(246, 251, 253);
   position: absolute;
@@ -75,7 +62,7 @@ nav {
   .Main {
     width: 70vw;
     /* height: 80vh; */
-    top: 5%;
+    top: 4%;
     left: 15%;
   }
   .Wrapper::after {
