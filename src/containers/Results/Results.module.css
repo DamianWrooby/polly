@@ -14,7 +14,7 @@
   justify-content: flex-start;
 }
 
-@media only screen and (min-width: 660px) {
+@media only screen and (min-width: 700px) {
   .Measurements {
     flex-direction: row;
   }

@@ -15,6 +15,9 @@
 .MeasurementBox:first-child {
   z-index: 1;
 }
+.MeasurementBox:nth-child(2) {
+  z-index: 2;
+}
 
 .Circles {
   display: flex;
@@ -48,6 +51,14 @@
   }
   .Tip {
     display: none;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .MeasurementBox:first-child {
+    z-index: 2;
+  }
+  .MeasurementBox:nth-child(2) {
+    z-index: 1;
   }
 }
 @media only screen and (min-width: 1200px) {
