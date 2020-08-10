@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from 'react';
 import 'ol/ol.css';
 import { Map, View } from 'ol';
 import { fromLonLat, toLonLat } from 'ol/proj';
+import { withRouter } from 'react-router';
 import olms from 'ol-mapbox-style';
-import Front from '../Front/Front';
 import classes from './FrontMap.module.css';
 
 const FrontMap = (props) => {
@@ -47,7 +47,6 @@ const FrontMap = (props) => {
 
   return (
     <>
-      <Front />
       <div id="map" className={classes.FrontMap} ref={mapRef}>
         {' '}
       </div>
@@ -61,4 +60,4 @@ FrontMap.propTypes = {
   }).isRequired,
 };
 
-export default FrontMap;
+export default withRouter(FrontMap);

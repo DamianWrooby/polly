@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Input from '../../components/UI/Input/Input';
+import FrontMap from '../FrontMap/FrontMap';
 import Loader from '../../components/UI/Loader/Loader';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Button from '../../components/UI/Button/Button';
@@ -24,7 +25,10 @@ function Front(props) {
 
   const searchHandler = (event) => {
     event.preventDefault();
-    const { history } = props;
+    const {
+      history: { push },
+    } = props;
+
     if (!query) {
       setValid(false);
     } else {
@@ -45,8 +49,10 @@ function Front(props) {
           Object.keys(loc).forEach((i) => {
             queryParams.push(`${encodeURIComponent(i)}=${loc[i]}`);
           });
+          console.log(queryParams);
           const queryString = queryParams.join('&');
-          history.push({
+          console.log(queryString);
+          push({
             pathname: '/location',
             search: `?${queryString}`,
           });
@@ -57,40 +63,46 @@ function Front(props) {
         });
     }
   };
-  let form = (
-    <form
-      className={[
-        'animate__animated',
-        'animate__bounceInDown',
-        'animate__fast',
-      ].join(' ')}
-      onSubmit={searchHandler}
-    >
-      <Input
-        value={query}
-        changed={inputChangedHandler}
-        label="Click on map or type address:"
-        blured={inputChangedHandler}
-        invalid={!valid}
-        validationFeedback="This field cannot be empty"
-        fieldId="search"
-      />
-      <Button
-        disabled={!valid}
-        icon="fa fa-search"
-        type="submit"
-        ariaLabel="search"
-      />
-    </form>
+  let front = (
+    <>
+      <div className={classes.Wrapper}>
+        <form
+          className={[
+            'animate__animated',
+            'animate__bounceInDown',
+            'animate__fast',
+          ].join(' ')}
+          onSubmit={searchHandler}
+        >
+          <Input
+            value={query}
+            changed={inputChangedHandler}
+            label="Click on map or type address:"
+            blured={inputChangedHandler}
+            invalid={!valid}
+            validationFeedback="This field cannot be empty"
+            fieldId="search"
+          />
+          <Button
+            addClass="front"
+            disabled={!valid}
+            icon="fa fa-search"
+            type="submit"
+            ariaLabel="search"
+          />
+        </form>
+      </div>
+      <FrontMap />
+    </>
   );
 
   if (loading) {
-    form = <Loader />;
+    front = <Loader />;
   } else if (error) {
-    form = null;
+    front = null;
   }
 
-  return <div className={classes.Front}>{form}</div>;
+  return <div className={classes.Front}>{front}</div>;
 }
 Front.defaultProps = {
   history: null,

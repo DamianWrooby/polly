@@ -121,6 +121,9 @@ html {
 .ol-viewport {
   border-radius: 1.5rem;
 }
+button.ol-zoom-in {
+  margin: 1px;
+}
 @-webkit-keyframes pulse-low {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(0, 86, 245, 0.4);
