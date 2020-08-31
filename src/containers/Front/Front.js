@@ -41,11 +41,7 @@ function Front(props) {
           const loc = response.data.results[0].locations[0].latLng;
           setLoading(false);
           const queryParams = [];
-          // for (let i in this.state.location) {
-          //   queryParams.push(
-          //     encodeURIComponent(i) + '=' + this.state.location[i]
-          //   );
-          // }
+
           Object.keys(loc).forEach((i) => {
             queryParams.push(`${encodeURIComponent(i)}=${loc[i]}`);
           });
@@ -63,6 +59,7 @@ function Front(props) {
         });
     }
   };
+
   let front = (
     <>
       <div className={classes.Wrapper}>

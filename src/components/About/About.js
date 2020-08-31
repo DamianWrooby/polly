@@ -10,6 +10,7 @@ const About = () => {
     'animate__bounceInDown',
     'animate__fast',
   ];
+
   return (
     <div className={classList.join(' ')}>
       <header>
