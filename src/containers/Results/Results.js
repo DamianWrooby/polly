@@ -7,7 +7,6 @@ import Loader from '../../components/UI/Loader/Loader';
 import MeasurementInfo from '../../components/MeasurementInfo/MeasurementInfo';
 import MeasurementBox from '../../components/MeasurementBox/MeasurementBox';
 import AirQualityBox from '../../components/AirQualityBox/AirQualityBox';
-import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
 function Results(props) {
   const [info, setInfo] = useState({});
@@ -23,6 +22,7 @@ function Results(props) {
   const {
     location: { search },
   } = props;
+
   useEffect(() => {
     // eslint-disable-next-line react/destructuring-assignment
     const query = new URLSearchParams(search);
@@ -161,12 +161,6 @@ function Results(props) {
       });
   }, [search]);
 
-  const goBackHandler = (event) => {
-    event.preventDefault();
-    // eslint-disable-next-line react/destructuring-assignment
-    props.history.goBack();
-  };
-
   let results = (
     <div className={classes.Content}>
       <MeasurementInfo location={info} till={till} from={from} />
@@ -198,18 +192,17 @@ function Results(props) {
   if (loading) {
     results = <Loader />;
   } else if (error) {
-    results = (
-      <ErrorMessage
-        textElement={
-          <p>
-            Cannot find this location.
-            <br />
-            Try another one.
-          </p>
-        }
-        action={goBackHandler}
-      />
-    );
+    results = null;
+    // <ErrorMessage
+    //   textElement={
+    //     <p>
+    //       Cannot find this location.
+    //       <br />
+    //       Try another one.
+    //     </p>
+    //   }
+    //   action={goBackHandler}
+    // />
   }
 
   return <div className={classes.Results}>{results}</div>;

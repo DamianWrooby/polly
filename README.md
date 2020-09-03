@@ -21,6 +21,7 @@ Polly is my first React project created from scratch. It allows users to check a
 - PropTypes
 - axios
 - CSS modules
+- Jest & react-testing-library
 - Animate.css
 - Prettier
 - ESLint

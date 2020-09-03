@@ -11,6 +11,7 @@
 .Watermark {
   color: rgba(255, 255, 255, 0.1);
   font-size: 11rem;
+  cursor: default;
   text-overflow: clip;
   font-family: Helvetica;
   font-weight: bold;

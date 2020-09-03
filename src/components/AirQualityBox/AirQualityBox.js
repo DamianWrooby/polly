@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './AirQualityBox.module.css';
 
 const AirQualityBox = ({ index }) => {
-  const indexValue = index ? (
+  const indexValue = index.level ? (
     <div className={classes.Index}>
       <p>
         <span>Pollution level: </span>

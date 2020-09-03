@@ -45,9 +45,7 @@ function Front(props) {
           Object.keys(loc).forEach((i) => {
             queryParams.push(`${encodeURIComponent(i)}=${loc[i]}`);
           });
-          console.log(queryParams);
           const queryString = queryParams.join('&');
-          console.log(queryString);
           push({
             pathname: '/location',
             search: `?${queryString}`,
