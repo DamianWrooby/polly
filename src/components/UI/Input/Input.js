@@ -20,6 +20,8 @@ const Input = ({
   }
   inputElement = (
     <input
+      type="text"
+      aria-label="text-input"
       className={inputClasses.join(' ')}
       value={value}
       onChange={changed}
