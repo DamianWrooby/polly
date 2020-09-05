@@ -32,7 +32,7 @@ Polly is my first React project created from scratch. It allows users to check a
 ## Upcoming improvements
 
 - Performance improvements
-- Tests
+- More unit tests
 
 ## Installing
 
